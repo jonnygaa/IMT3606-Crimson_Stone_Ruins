@@ -214,7 +214,7 @@ There is no classic form of economy in the game, like money. Our form of economy
 
 
 # Screen Flow
-![alt text]([https://github.com/jonnygaa/IMT3606-Crimson_Stone_Ruins/blob/main/README_images/combatScreen.png](https://github.com/jonnygaa/IMT3606-Crimson_Stone_Ruins/blob/main/README_images/screenOrder.png "Screen order")
+![alt text](https://github.com/jonnygaa/IMT3606-Crimson_Stone_Ruins/blob/main/README_images/screenOrder.png "Screen order")
 Here are the 3 main screens that we will have. There are 3 other possible screens. If we go to a certain dotted line screen, we can only go back to the same screen that we came from.
 
 ![alt text](https://github.com/jonnygaa/IMT3606-Crimson_Stone_Ruins/blob/main/README_images/combatScreen.png "Combat Screen")
