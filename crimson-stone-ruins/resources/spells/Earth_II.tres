@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://57dc5yp6y1mj"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_svwyg"]
+[ext_resource type="PackedScene" uid="uid://b5plbdytsi316" path="res://scenes/spell_animations/earth_animation.tscn" id="2_2hw18"]
+
+[resource]
+script = ExtResource("1_svwyg")
+spell_name = "Earth II"
+element_order = Array[int]([3, 3])
+sprite_animation = ExtResource("2_2hw18")
+damage = 5
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

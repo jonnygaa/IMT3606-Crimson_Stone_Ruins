@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://s2epq03ycjve"]
+
+[ext_resource type="Script" uid="uid://d15a800pr8ndr" path="res://scripts/ui/cusotm_tooltip.gd" id="1_545vq"]
+[ext_resource type="FontFile" uid="uid://cydj0nlgmdst7" path="res://assets/0_external/Fonts/Not Jam Mono Crooked 8.ttf" id="2_545vq"]
+[ext_resource type="StyleBox" uid="uid://r3maimdjkl6i" path="res://resources/ui/panel_style_tooltip.tres" id="2_mourn"]
+
+[node name="CusotmTooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_545vq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 8.0
+theme_override_styles/panel = ExtResource("2_mourn")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_545vq")
+theme_override_font_sizes/normal_font_size = 8
+text = "This is a tooltip"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

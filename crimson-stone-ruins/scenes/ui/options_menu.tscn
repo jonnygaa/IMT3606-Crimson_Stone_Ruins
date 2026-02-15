@@ -1,0 +1,227 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgau1w5gqtpc1"]
+
+[ext_resource type="Script" uid="uid://cqf2gj5omdtmk" path="res://scripts/ui/custom_key_binding.gd" id="1_ta2k2"]
+[ext_resource type="Script" uid="uid://cy1wppwmn5kyg" path="res://scripts/ui/options_menu.gd" id="1_wj2x4"]
+[ext_resource type="Script" uid="uid://bo513vmvayah5" path="res://scripts/ui/audio.gd" id="2_imaij"]
+[ext_resource type="Script" uid="uid://3phngbjgbdip" path="res://scripts/ui/graphics.gd" id="3_c4822"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wj2x4")
+
+[node name="GrayBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.52549, 0.52549, 0.52549, 0.321569)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = 65.0
+offset_right = -89.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Sounds" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Control" type="Control" parent="TabContainer/Sounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_imaij")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sounds/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = 58.0
+offset_right = -588.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelMaster" type="Label" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+text = "Over all Sound"
+
+[node name="ScrollMaster" type="HScrollBar" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelSFX" type="Label" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+text = "SFX Sound"
+
+[node name="ScrollSFX" type="HScrollBar" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelMusic" type="Label" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+text = "Music Sound"
+
+[node name="ScrollMusic" type="HScrollBar" parent="TabContainer/Sounds/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Graphics" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_c4822")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -430.0
+offset_right = 430.0
+offset_bottom = 132.0
+grow_horizontal = 2
+
+[node name="WindowModeContainer" type="HBoxContainer" parent="TabContainer/Graphics/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/Control/VBoxContainer/WindowModeContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "Window Mode"
+
+[node name="HSeparator" type="VSeparator" parent="TabContainer/Graphics/Control/VBoxContainer/WindowModeContainer"]
+layout_mode = 2
+
+[node name="WindowModeOptionButton" type="OptionButton" parent="TabContainer/Graphics/Control/VBoxContainer/WindowModeContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="ScreenResolutionContainer" type="HBoxContainer" parent="TabContainer/Graphics/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/Control/VBoxContainer/ScreenResolutionContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+text = "Screen Resolution"
+
+[node name="HSeparator" type="VSeparator" parent="TabContainer/Graphics/Control/VBoxContainer/ScreenResolutionContainer"]
+layout_mode = 2
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="TabContainer/Graphics/Control/VBoxContainer/ScreenResolutionContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="KeyBinds" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Control" type="Control" parent="TabContainer/KeyBinds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ta2k2")
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/KeyBinds/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -423.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/KeyBinds/Control/PanelContainer"]
+layout_mode = 2
+text = "Click the key to bind..."
+horizontal_alignment = 1
+
+[node name="ActionsContainer" type="VBoxContainer" parent="TabContainer/KeyBinds/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/KeyBinds/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Reset" type="Button" parent="TabContainer/KeyBinds/Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Reset"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Back" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"
+
+[connection signal="value_changed" from="TabContainer/Sounds/Control/VBoxContainer/ScrollMaster" to="TabContainer/Sounds/Control" method="_on_scroll_master_value_changed"]
+[connection signal="value_changed" from="TabContainer/Sounds/Control/VBoxContainer/ScrollSFX" to="TabContainer/Sounds/Control" method="_on_scroll_sfx_value_changed"]
+[connection signal="value_changed" from="TabContainer/Sounds/Control/VBoxContainer/ScrollMusic" to="TabContainer/Sounds/Control" method="_on_scroll_music_value_changed"]
+[connection signal="item_selected" from="TabContainer/Graphics/Control/VBoxContainer/WindowModeContainer/WindowModeOptionButton" to="TabContainer/Graphics/Control" method="_on_window_mode_option_button_item_selected"]
+[connection signal="item_selected" from="TabContainer/Graphics/Control/VBoxContainer/ScreenResolutionContainer/ResolutionOptionButton" to="TabContainer/Graphics/Control" method="_on_resolution_option_button_item_selected"]
+[connection signal="pressed" from="TabContainer/KeyBinds/Control/MarginContainer/Reset" to="TabContainer/KeyBinds/Control" method="_on_reset_pressed"]
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]

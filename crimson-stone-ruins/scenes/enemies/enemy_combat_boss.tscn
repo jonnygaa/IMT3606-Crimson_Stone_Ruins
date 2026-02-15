@@ -1,0 +1,65 @@
+[gd_scene load_steps=20 format=3 uid="uid://bfb6almtstvlu"]
+
+[ext_resource type="Script" uid="uid://b1dp7tytikuu6" path="res://scripts/enemies/ennemy_combat.gd" id="1_siboj"]
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="2_yyiiv"]
+[ext_resource type="Resource" uid="uid://kxve2lovvfd8" path="res://resources/spells/Acid_Water.tres" id="3_x5bas"]
+[ext_resource type="Resource" uid="uid://bvivwvj0j1j3j" path="res://resources/spells/fire_I.tres" id="4_4tru6"]
+[ext_resource type="Resource" uid="uid://bxrv208k8t4jc" path="res://resources/spells/Acid_II.tres" id="5_ktna8"]
+[ext_resource type="Resource" uid="uid://db3ewstuo87ag" path="res://resources/spells/Water_II.tres" id="6_cwbuy"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="7_m2sv3"]
+[ext_resource type="Resource" uid="uid://c0m1efpdrjr4f" path="res://resources/ingredients/25Acid_rare.tres" id="8_ge3ku"]
+[ext_resource type="Resource" uid="uid://b6g2e6bpt6jd" path="res://resources/ingredients/12Water_uncommon.tres" id="9_5wu2a"]
+[ext_resource type="Resource" uid="uid://3suup87vvrl4" path="res://resources/ingredients/00Fire.tres" id="10_ixp35"]
+[ext_resource type="Resource" uid="uid://bgsnbyyhok0kp" path="res://resources/ingredients/15Acid_uncommon.tres" id="11_4rj8w"]
+[ext_resource type="PackedScene" uid="uid://o4tmjll3lcuj" path="res://scenes/ui/floating_damage_text.tscn" id="12_v845p"]
+[ext_resource type="Texture2D" uid="uid://dl0xjv4ogq6qa" path="res://assets/art/characters/BossModel2.png" id="13_siboj"]
+[ext_resource type="PackedScene" uid="uid://b3g3k1i5axa66" path="res://scenes/combat/attributes/health.tscn" id="14_6oghc"]
+[ext_resource type="PackedScene" uid="uid://c4tecwxrf0258" path="res://scenes/combat/attributes/elemental_resistance.tscn" id="15_m1yq7"]
+[ext_resource type="PackedScene" uid="uid://bnlfu33nf57wm" path="res://scenes/combat/attributes/speed.tscn" id="16_c0s7n"]
+[ext_resource type="PackedScene" uid="uid://d2aqt1sr4qnfu" path="res://scenes/combat/attributes/defense.tscn" id="17_gfala"]
+[ext_resource type="Texture2D" uid="uid://cri3l06rfx0fb" path="res://assets/ui/4. Arrow Down.png" id="18_n84i4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oro3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_siboj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnnemyCombat" type="Node3D" groups=["enemy"]]
+script = ExtResource("1_siboj")
+available_spells = Array[ExtResource("2_yyiiv")]([ExtResource("3_x5bas"), ExtResource("4_4tru6"), ExtResource("5_ktna8"), ExtResource("6_cwbuy")])
+ingredients_drop_pool = Array[ExtResource("7_m2sv3")]([ExtResource("8_ge3ku"), ExtResource("9_5wu2a"), ExtResource("10_ixp35"), ExtResource("11_4rj8w")])
+max_ingredients = 10
+max_quantity = 5
+floating_text_scene = ExtResource("12_v845p")
+hp = 100
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.448143, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oro3q")
+autoplay = "default"
+frame_progress = 0.113145
+
+[node name="Health" parent="." instance=ExtResource("14_6oghc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897066, 0)
+
+[node name="ElementalResistance" parent="." instance=ExtResource("15_m1yq7")]
+
+[node name="Speed" parent="." instance=ExtResource("16_c0s7n")]
+
+[node name="Defense" parent="." instance=ExtResource("17_gfala")]
+
+[node name="TargetCursor" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399207, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("18_n84i4")
+
+[connection signal="on_die" from="Health" to="." method="_on_health_on_die"]
+[connection signal="on_take_damage" from="Health" to="." method="_on_health_on_take_damage"]

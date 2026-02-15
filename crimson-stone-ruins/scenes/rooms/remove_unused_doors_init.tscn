@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c43yerq67gr6x"]
+
+[ext_resource type="Script" uid="uid://cd75biyo5bkly" path="res://scripts/dungeon/remove_unused_doors_init.gd" id="1_60ad0"]
+
+[node name="RemoveUnusedDoors" type="Node"]
+script = ExtResource("1_60ad0")

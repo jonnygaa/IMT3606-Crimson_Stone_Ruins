@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://pc5e0rgsu4f1"]
+
+[ext_resource type="StyleBox" uid="uid://b0evlh38180ef" path="res://resources/ui/panel_style_spell_normal.tres" id="1_2ccg4"]
+[ext_resource type="Script" uid="uid://mlencqlvkauh" path="res://scripts/ui/spell_button.gd" id="1_b5kpl"]
+
+[node name="SpellButton" type="PanelContainer"]
+offset_right = 164.0
+offset_bottom = 15.0
+theme_override_styles/panel = ExtResource("1_2ccg4")
+script = ExtResource("1_b5kpl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 11
+text = "This is a spell name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

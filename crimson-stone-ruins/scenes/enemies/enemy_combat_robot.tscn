@@ -1,0 +1,74 @@
+[gd_scene load_steps=23 format=3 uid="uid://dgn7jdlj2wxkx"]
+
+[ext_resource type="Script" uid="uid://b1dp7tytikuu6" path="res://scripts/enemies/ennemy_combat.gd" id="1_y06na"]
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="2_jywwv"]
+[ext_resource type="Resource" uid="uid://dji36c4eiuhn8" path="res://resources/spells/acid_I.tres" id="3_bt8in"]
+[ext_resource type="Resource" uid="uid://bvivwvj0j1j3j" path="res://resources/spells/fire_I.tres" id="4_fcdnh"]
+[ext_resource type="Resource" uid="uid://d1u6kxoim0gk6" path="res://resources/spells/thunder.tres" id="5_86e58"]
+[ext_resource type="Resource" uid="uid://dkpvhk478ai2m" path="res://resources/spells/wind_I.tres" id="6_j1aov"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="7_7dmli"]
+[ext_resource type="Resource" uid="uid://pm64xr3y8st6" path="res://resources/ingredients/31Lightning_mythical.tres" id="8_hbb6c"]
+[ext_resource type="Resource" uid="uid://dxh81as6dcrbg" path="res://resources/ingredients/14Wind_uncommon.tres" id="9_lrtq2"]
+[ext_resource type="Resource" uid="uid://3suup87vvrl4" path="res://resources/ingredients/00Fire.tres" id="10_kol7i"]
+[ext_resource type="Resource" uid="uid://bgo5kaasq4lii" path="res://resources/ingredients/01Lightning.tres" id="11_rha1d"]
+[ext_resource type="Texture2D" uid="uid://dpotb1ru6xsml" path="res://assets/enemies/Characters/robot_idle/frame_0_delay-0.1s.png" id="12_jm6jh"]
+[ext_resource type="PackedScene" uid="uid://o4tmjll3lcuj" path="res://scenes/ui/floating_damage_text.tscn" id="12_jywwv"]
+[ext_resource type="Texture2D" uid="uid://bb5cm66hik2db" path="res://assets/enemies/Characters/robot_idle/frame_1_delay-0.1s.png" id="13_efpv5"]
+[ext_resource type="Texture2D" uid="uid://c8b3jjql6u4qi" path="res://assets/enemies/Characters/robot_idle/frame_2_delay-0.1s.png" id="14_2dpe8"]
+[ext_resource type="Texture2D" uid="uid://hmp76unkqe5i" path="res://assets/enemies/Characters/robot_idle/frame_3_delay-0.1s.png" id="15_38mwg"]
+[ext_resource type="PackedScene" uid="uid://b3g3k1i5axa66" path="res://scenes/combat/attributes/health.tscn" id="16_txe72"]
+[ext_resource type="PackedScene" uid="uid://c4tecwxrf0258" path="res://scenes/combat/attributes/elemental_resistance.tscn" id="17_m7diy"]
+[ext_resource type="PackedScene" uid="uid://bnlfu33nf57wm" path="res://scenes/combat/attributes/speed.tscn" id="18_4foqc"]
+[ext_resource type="PackedScene" uid="uid://d2aqt1sr4qnfu" path="res://scenes/combat/attributes/defense.tscn" id="19_y3kmb"]
+[ext_resource type="Texture2D" uid="uid://cri3l06rfx0fb" path="res://assets/ui/4. Arrow Down.png" id="20_v8swq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oro3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jm6jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_efpv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2dpe8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_38mwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnnemyCombat" type="Node3D" groups=["enemy"]]
+script = ExtResource("1_y06na")
+available_spells = Array[ExtResource("2_jywwv")]([ExtResource("3_bt8in"), ExtResource("4_fcdnh"), ExtResource("5_86e58"), ExtResource("6_j1aov")])
+ingredients_drop_pool = Array[ExtResource("7_7dmli")]([ExtResource("8_hbb6c"), ExtResource("9_lrtq2"), ExtResource("10_kol7i"), ExtResource("11_rha1d")])
+floating_text_scene = ExtResource("12_jywwv")
+hp = 10
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165947, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_oro3q")
+autoplay = "default"
+
+[node name="Health" parent="." instance=ExtResource("16_txe72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.377684, 0)
+
+[node name="ElementalResistance" parent="." instance=ExtResource("17_m7diy")]
+
+[node name="Speed" parent="." instance=ExtResource("18_4foqc")]
+
+[node name="Defense" parent="." instance=ExtResource("19_y3kmb")]
+
+[node name="TargetCursor" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.399207, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("20_v8swq")
+
+[connection signal="on_die" from="Health" to="." method="_on_health_on_die"]
+[connection signal="on_take_damage" from="Health" to="." method="_on_health_on_take_damage"]

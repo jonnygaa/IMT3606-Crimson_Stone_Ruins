@@ -1,0 +1,28 @@
+[gd_scene load_steps=11 format=3 uid="uid://d5ke2gsgemn8"]
+
+[ext_resource type="Script" uid="uid://davhjbuc2cd12" path="res://addons/SimpleDungeons/DungeonGenerator3D.gd" id="1_wwqjj"]
+[ext_resource type="PackedScene" uid="uid://cy67cq2nel8ad" path="res://scenes/rooms/level_3/room_1.tscn" id="2_wwqjj"]
+[ext_resource type="PackedScene" uid="uid://cahttogh2g04r" path="res://scenes/rooms/level_3/room_2.tscn" id="3_ikjlf"]
+[ext_resource type="PackedScene" uid="uid://dwaniw7b56paj" path="res://scenes/rooms/level_3/room_3.tscn" id="4_yit5a"]
+[ext_resource type="PackedScene" uid="uid://du7sbt4wg8tx6" path="res://scenes/rooms/level_3/corridor_1.tscn" id="5_wwqjj"]
+[ext_resource type="PackedScene" uid="uid://cbrnlf8oaxlkf" path="res://scenes/rooms/level_3/room_4.tscn" id="5_yit5a"]
+[ext_resource type="PackedScene" uid="uid://dr0yhlhgaxpex" path="res://scenes/rooms/level_3/room_5.tscn" id="6_4jelk"]
+[ext_resource type="PackedScene" uid="uid://lye7qhdc6imu" path="res://scenes/player/player.tscn" id="6_y3qkx"]
+[ext_resource type="PackedScene" uid="uid://cmuk2osr84ibw" path="res://scenes/rooms/level_3/spawn.tscn" id="7_wwqjj"]
+[ext_resource type="PackedScene" uid="uid://bqjw2ry1vlchw" path="res://scenes/rooms/level_3/exit.tscn" id="8_ikjlf"]
+
+[node name="DungeonGenerator3D" type="Node3D"]
+unique_name_in_owner = true
+script = ExtResource("1_wwqjj")
+room_scenes = Array[PackedScene]([ExtResource("2_wwqjj"), ExtResource("3_ikjlf"), ExtResource("4_yit5a"), ExtResource("5_yit5a"), ExtResource("6_4jelk")])
+corridor_room_scene = ExtResource("5_wwqjj")
+dungeon_size = Vector3i(7, 1, 6)
+voxel_scale = Vector3(3, 2, 3)
+max_retries = 10
+player_scene = ExtResource("6_y3qkx")
+
+[node name="Spawn" parent="." instance=ExtResource("7_wwqjj")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -9, 0, 7.5)
+
+[node name="Exit" parent="." instance=ExtResource("8_ikjlf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -1.5)

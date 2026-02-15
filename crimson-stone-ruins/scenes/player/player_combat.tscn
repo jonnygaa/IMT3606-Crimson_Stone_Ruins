@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://csgt05ppgtguh"]
+
+[ext_resource type="Script" uid="uid://b1p8btdr567qa" path="res://scripts/player/player_combat.gd" id="1_hmp3k"]
+[ext_resource type="Texture2D" uid="uid://bu78o1d76a82w" path="res://assets/art/characters/PlayerModel4.png" id="1_jiknr"]
+[ext_resource type="PackedScene" uid="uid://b3g3k1i5axa66" path="res://scenes/combat/attributes/health.tscn" id="4_7cj35"]
+[ext_resource type="PackedScene" uid="uid://c4tecwxrf0258" path="res://scenes/combat/attributes/elemental_resistance.tscn" id="5_vllt4"]
+[ext_resource type="PackedScene" uid="uid://bnlfu33nf57wm" path="res://scenes/combat/attributes/speed.tscn" id="6_jrsbl"]
+[ext_resource type="PackedScene" uid="uid://d2aqt1sr4qnfu" path="res://scenes/combat/attributes/defense.tscn" id="7_405s0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffwh1"]
+atlas = ExtResource("1_jiknr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gp7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffwh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerCombat" type="Node3D" groups=["player"]]
+script = ExtResource("1_hmp3k")
+is_player = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163974, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_5gp7b")
+autoplay = "default"
+
+[node name="Health" parent="." instance=ExtResource("4_7cj35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313928, 0)
+post_death_action = 2
+current_effect = 1
+
+[node name="ElementalResistance" parent="." instance=ExtResource("5_vllt4")]
+
+[node name="Speed" parent="." instance=ExtResource("6_jrsbl")]
+
+[node name="Defense" parent="." instance=ExtResource("7_405s0")]
+defense = 10
+
+[connection signal="on_change" from="Health" to="." method="_on_health_on_change"]
+[connection signal="on_die" from="Health" to="." method="_on_health_on_die"]
+[connection signal="on_take_damage" from="Health" to="." method="_on_health_on_take_damage"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlm7cufg2t7lp"]
+
+[ext_resource type="Texture2D" uid="uid://robfs7kl8cd1" path="res://assets/ui/inventory/water.png" id="1_flhcu"]
+
+[node name="Water" type="Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_flhcu")

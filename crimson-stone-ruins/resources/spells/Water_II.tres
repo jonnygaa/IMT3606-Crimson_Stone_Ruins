@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://db3ewstuo87ag"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_ctn5r"]
+[ext_resource type="PackedScene" uid="uid://c4n2wrjwpmk7l" path="res://scenes/spell_animations/water_animation.tscn" id="2_5quyx"]
+
+[resource]
+script = ExtResource("1_ctn5r")
+spell_name = "Water II"
+element_order = Array[int]([2, 2])
+sprite_animation = ExtResource("2_5quyx")
+damage = 5
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

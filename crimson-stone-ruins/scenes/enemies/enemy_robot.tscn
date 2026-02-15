@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://rd1qk7wqy7gq"]
+
+[ext_resource type="Script" uid="uid://ctiiavjq5a436" path="res://scripts/enemies/enemy.gd" id="1_q8f2n"]
+[ext_resource type="Texture2D" uid="uid://dpotb1ru6xsml" path="res://assets/enemies/Characters/robot_idle/frame_0_delay-0.1s.png" id="2_q8f2n"]
+[ext_resource type="PackedScene" uid="uid://dgn7jdlj2wxkx" path="res://scenes/enemies/enemy_combat_robot.tscn" id="2_vwwp7"]
+[ext_resource type="Texture2D" uid="uid://bb5cm66hik2db" path="res://assets/enemies/Characters/robot_idle/frame_1_delay-0.1s.png" id="3_vwwp7"]
+[ext_resource type="Texture2D" uid="uid://c8b3jjql6u4qi" path="res://assets/enemies/Characters/robot_idle/frame_2_delay-0.1s.png" id="4_ay0tu"]
+[ext_resource type="Texture2D" uid="uid://hmp76unkqe5i" path="res://assets/enemies/Characters/robot_idle/frame_3_delay-0.1s.png" id="5_5lo31"]
+[ext_resource type="Texture2D" uid="uid://2ndu2s0w5c6y" path="res://assets/enemies/Characters/robot_walk/frame_0_delay-0.1s.png" id="6_upt50"]
+[ext_resource type="Texture2D" uid="uid://c0b3hf8mnaj3x" path="res://assets/enemies/Characters/robot_walk/frame_1_delay-0.1s.png" id="7_oqfiq"]
+[ext_resource type="Texture2D" uid="uid://d1fr77ysmcmxr" path="res://assets/enemies/Characters/robot_walk/frame_2_delay-0.1s.png" id="8_wf7rc"]
+[ext_resource type="Texture2D" uid="uid://duudsvp5l8ica" path="res://assets/enemies/Characters/robot_walk/frame_3_delay-0.1s.png" id="9_0r5ft"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_38ino"]
+size = Vector3(0.9, 0.2, 1.1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q8f2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vwwp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ay0tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5lo31")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_upt50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oqfiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wf7rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0r5ft")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e3ao"]
+size = Vector3(1, 0.2, 1.2)
+
+[node name="Enemy" type="CharacterBody3D" groups=["face_player_sprite", "persist"]]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_q8f2n")
+speed = 2
+enemy_combat_scene = ExtResource("2_vwwp7")
+
+[node name="Hurtbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.04, 0.0800001, 0.0799999)
+shape = SubResource("BoxShape3D_38ino")
+
+[node name="Pivot" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(500, 0, 0, 0, -2.18557e-05, 0.5, 0, -500, -2.18557e-08, 0, 0.015, 0)
+pixel_size = 0.0001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_iifgy")
+animation = &"Run"
+autoplay = "Idle"
+
+[node name="Roombox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Hurtbox" type="CollisionShape3D" parent="Roombox"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.04, -0.4, 0.0799999)
+shape = SubResource("BoxShape3D_8e3ao")
+
+[connection signal="body_entered" from="Roombox" to="." method="_on_roombox_body_entered"]

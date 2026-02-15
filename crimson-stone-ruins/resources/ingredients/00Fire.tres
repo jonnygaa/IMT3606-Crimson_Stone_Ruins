@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://3suup87vvrl4"]
+
+[ext_resource type="Texture2D" uid="uid://dghf4ngsm15lh" path="res://assets/ui/inventory/fire.png" id="1_5tbnn"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="1_7vmio"]
+
+[resource]
+script = ExtResource("1_7vmio")
+id = 0
+name = "Ember I"
+quality = 0
+element = 0
+icon = ExtResource("1_5tbnn")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

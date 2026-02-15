@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsll74hyyywn"]
+
+[ext_resource type="Script" uid="uid://dan5gjxsse22i" path="res://scripts/ui/equip_accessory.gd" id="1_b0t6l"]
+
+[node name="EquipAccessory" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0t6l")
+
+[node name="GrayBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.52549, 0.52549, 0.52549, 0.321569)
+
+[node name="Equip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 210.0
+offset_right = 562.0
+offset_bottom = 241.0
+text = "Equip"
+
+[node name="DontEquip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 210.0
+offset_right = 688.0
+offset_bottom = 241.0
+text = "Don't Equip"
+
+[node name="AccessorySprite" type="Sprite2D" parent="."]
+position = Vector2(576, 64)
+scale = Vector2(4, 4)
+
+[node name="AccessoryLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.23
+anchor_right = 0.5
+anchor_bottom = 0.23
+offset_left = -20.0
+offset_top = -0.0400085
+offset_right = 20.0
+offset_bottom = 45.96
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Equip" to="." method="_on_equip_pressed"]
+[connection signal="pressed" from="DontEquip" to="." method="_on_dont_equip_pressed"]

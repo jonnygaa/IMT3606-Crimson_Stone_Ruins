@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://df5ylt4l6ye0d"]
+
+[ext_resource type="Texture2D" uid="uid://w7s5p7d5tbia" path="res://assets/ui/inventory/fire_rare.png" id="1_ask4g"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_t78ww"]
+
+[resource]
+script = ExtResource("2_t78ww")
+id = 0
+name = "Ember III"
+quality = 2
+element = 0
+icon = ExtResource("1_ask4g")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://br8pxd6gpv4tg"]
+
+[ext_resource type="Script" uid="uid://b1t8qvak2o17x" path="res://addons/SimpleTutorial/TutorialGenerator3D.gd" id="1_sge42"]
+[ext_resource type="PackedScene" uid="uid://bkyvamj2h1ux0" path="res://scenes/rooms/tutorial/corridor_1.tscn" id="2_2ndws"]
+[ext_resource type="PackedScene" uid="uid://dj7tx2qhvfocv" path="res://scenes/rooms/tutorial/room_1.tscn" id="2_ugyke"]
+[ext_resource type="PackedScene" uid="uid://lye7qhdc6imu" path="res://scenes/player/player.tscn" id="3_usjpg"]
+[ext_resource type="PackedScene" uid="uid://co5emreoygw8" path="res://scenes/rooms/tutorial/exit.tscn" id="4_2ndws"]
+[ext_resource type="PackedScene" uid="uid://dw0s5a081b7ft" path="res://scenes/rooms/tutorial/room_3.tscn" id="4_v1e17"]
+[ext_resource type="PackedScene" uid="uid://big4newd6ry0o" path="res://scenes/rooms/tutorial/spawn.tscn" id="5_2ndws"]
+
+[node name="DungeonGenerator3D" type="Node3D"]
+unique_name_in_owner = true
+script = ExtResource("1_sge42")
+room_scenes = Array[PackedScene]([ExtResource("2_ugyke"), ExtResource("4_v1e17")])
+corridor_room_scene = ExtResource("2_2ndws")
+dungeon_size = Vector3i(4, 1, 1)
+voxel_scale = Vector3(3, 2, 3)
+player_scene = ExtResource("3_usjpg")
+default_seed = 3282746692
+
+[node name="Exit" parent="." instance=ExtResource("4_2ndws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0)
+
+[node name="Spawn" parent="." instance=ExtResource("5_2ndws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)

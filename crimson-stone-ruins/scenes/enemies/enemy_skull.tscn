@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://fsmu38bidl8t"]
+
+[ext_resource type="Script" uid="uid://ctiiavjq5a436" path="res://scripts/enemies/enemy.gd" id="1_7j5vg"]
+[ext_resource type="PackedScene" uid="uid://n7pvb0y31yl3" path="res://scenes/enemies/enemy_combat_skull.tscn" id="2_ccbyv"]
+[ext_resource type="Texture2D" uid="uid://dkgo4twn21cig" path="res://assets/enemies/Characters/skull_idle/SkullIdle.png" id="3_hmktr"]
+[ext_resource type="Texture2D" uid="uid://bd82snq3x4u4h" path="res://assets/enemies/Characters/skull_walk/SkullWalkaseprite.png" id="4_epprf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_38ino"]
+size = Vector3(0.7, 0.2, 1.1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmktr"]
+atlas = ExtResource("3_hmktr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epprf"]
+atlas = ExtResource("3_hmktr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77o0g"]
+atlas = ExtResource("3_hmktr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjcbb"]
+atlas = ExtResource("3_hmktr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccbyv"]
+atlas = ExtResource("4_epprf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s5nd"]
+atlas = ExtResource("4_epprf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfyau"]
+atlas = ExtResource("4_epprf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mfij"]
+atlas = ExtResource("4_epprf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmktr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epprf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77o0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjcbb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccbyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s5nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfyau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mfij")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8e3ao"]
+size = Vector3(0.8, 0.2, 1.2)
+
+[node name="Enemy" type="CharacterBody3D" groups=["face_player_sprite", "persist"]]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_7j5vg")
+enemy_combat_scene = ExtResource("2_ccbyv")
+
+[node name="Hurtbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.04, 0.0800001, 0.0799999)
+shape = SubResource("BoxShape3D_38ino")
+
+[node name="Pivot" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(500, 0, 0, 0, -2.18557e-05, 0.5, 0, -500, -2.18557e-08, 0, 0.015, 0)
+pixel_size = 0.0001
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_iifgy")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 1
+frame_progress = 0.702844
+
+[node name="Roombox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Hurtbox" type="CollisionShape3D" parent="Roombox"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.04, -0.4, 0.0799999)
+shape = SubResource("BoxShape3D_8e3ao")
+
+[connection signal="body_entered" from="Roombox" to="." method="_on_roombox_body_entered"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=22 format=3 uid="uid://c3fwbc6sehk3m"]
+
+[ext_resource type="Script" uid="uid://bcfqdrtc65p0r" path="res://scripts/level/chest.gd" id="1_4rr8t"]
+[ext_resource type="Texture2D" uid="uid://dou4otp4yps6o" path="res://assets/level/Chests.png" id="1_py4fq"]
+[ext_resource type="PackedScene" uid="uid://fmtk1elkqd6e" path="res://scenes/level/interactable.tscn" id="3_cq732"]
+[ext_resource type="FontFile" uid="uid://c8ty0nw4ejspa" path="res://assets/font/MinecraftRegular-Bmg3.otf" id="4_uaq27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgtah"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(192, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br7pd"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kua1b"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(96, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmlp6"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoamo"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rr8t"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq732"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaq27"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d8py"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx5m8"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67dom"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cpgy"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoe0v"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(96, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcod1"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j0k6"]
+atlas = ExtResource("1_py4fq")
+region = Rect2(192, 32, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgtah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgtah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br7pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kua1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmlp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoamo")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rr8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq732")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaq27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d8py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx5m8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67dom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cpgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoe0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcod1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j0k6")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaq27"]
+size = Vector3(0.36499, 0.0654299, 0.269531)
+
+[node name="Chest" type="Node3D" groups=["persist"]]
+script = ExtResource("1_4rr8t")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." groups=["zsort"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0149399, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_bgtah")
+autoplay = "default"
+frame_progress = 0.450756
+
+[node name="Interactable" parent="." instance=ExtResource("3_cq732")]
+interact_name = "Open Chest"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0757675, 0.0218294, 0.0473632)
+shape = SubResource("BoxShape3D_uaq27")
+
+[node name="Label3D" type="Label3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0633834, 0.091139, -0.134113)
+texture_filter = 0
+text = "Open Chest"
+font = ExtResource("4_uaq27")
+font_size = 20
+outline_size = 5

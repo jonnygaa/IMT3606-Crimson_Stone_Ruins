@@ -1,0 +1,5 @@
+[gd_scene load_steps=0 format=3 uid="uid://dnvkefn58khy7"]
+
+[node name="FloatingDamageText" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ruhe4d3e6f8"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_n4m70"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_23ij6"]
+[ext_resource type="PackedScene" uid="uid://bsc0r0wvkkq6n" path="res://scenes/rooms/chest_spawn_point.tscn" id="4_3eevm"]
+[ext_resource type="PackedScene" uid="uid://dng55cpcgee78" path="res://scenes/rooms/enemy_spawn_point.tscn" id="4_23ij6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vu5en"]
+albedo_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnbyo"]
+albedo_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Room4" type="Node3D" groups=["persist"]]
+script = ExtResource("1_n4m70")
+size_in_voxels = Vector3i(2, 1, 2)
+voxel_scale = Vector3(3, 2, 3)
+min_count = 1
+max_count = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000235558, 0)
+use_collision = true
+size = Vector3(6, 2, 6)
+material = SubResource("StandardMaterial3D_vu5en")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+operation = 2
+size = Vector3(5.9, 1.9, 1)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8)
+operation = 2
+size = Vector3(5.9, 1.9, 1)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
+operation = 2
+size = Vector3(1.1, 1.9, 3.9)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2)
+operation = 2
+size = Vector3(1.1, 1.9, 1.9)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.0999999)
+operation = 2
+size = Vector3(1.1, 1.9, 2.3)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, -1.19209e-07)
+operation = 2
+size = Vector3(1.1, 1.9, 5.9)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="CSGBox3DRoof" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.0499998)
+visible = false
+operation = 2
+size = Vector3(5.9, 0.1, 5.8)
+material = SubResource("StandardMaterial3D_hnbyo")
+
+[node name="DOOR" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.97701)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="DOOR2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.99004)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="DOOR?" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, -1.44992)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="RemoveUnusedDoor" parent="." instance=ExtResource("2_23ij6")]
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("4_23ij6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34478, -0.881636, -1.51661)
+
+[node name="ChestSpawnPoint" parent="." instance=ExtResource("4_3eevm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.54849, -0.95, -0.33761)
+
+[node name="ChestSpawnPoint2" parent="." instance=ExtResource("4_3eevm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.54849, -0.95, -1.43761)
+
+[node name="ChestSpawnPoint3" parent="." instance=ExtResource("4_3eevm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.55151, -0.95, 1.86239)
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoor" method="_on_dungeon_done_generating"]

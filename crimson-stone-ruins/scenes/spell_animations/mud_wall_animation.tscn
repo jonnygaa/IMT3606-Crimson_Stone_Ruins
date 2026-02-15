@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnepf86lxpei3"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_2ebno"]
+[ext_resource type="Texture2D" uid="uid://dhwmckjye73qw" path="res://assets/art/elements-spells-magics/MudWallAnimation.png" id="2_oibek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42jxl"]
+atlas = ExtResource("2_oibek")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5lti"]
+atlas = ExtResource("2_oibek")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xbvt"]
+atlas = ExtResource("2_oibek")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5elnj"]
+atlas = ExtResource("2_oibek")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmdk1"]
+atlas = ExtResource("2_oibek")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c715m"]
+atlas = ExtResource("2_oibek")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa0hb"]
+atlas = ExtResource("2_oibek")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjbwh"]
+atlas = ExtResource("2_oibek")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42jxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5lti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xbvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5elnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmdk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c715m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa0hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjbwh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="MudWallAnimation" type="Node3D"]
+script = ExtResource("1_2ebno")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

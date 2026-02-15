@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b6g2e6bpt6jd"]
+
+[ext_resource type="Texture2D" uid="uid://bbf6etpcujnkn" path="res://assets/ui/inventory/water_uncommon.png" id="1_ywry4"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_saljh"]
+
+[resource]
+script = ExtResource("2_saljh")
+id = 0
+name = "Water Vile II"
+quality = 1
+element = 2
+icon = ExtResource("1_ywry4")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

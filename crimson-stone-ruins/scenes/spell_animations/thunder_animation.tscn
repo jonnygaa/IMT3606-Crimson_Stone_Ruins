@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cigoecne7c111"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_kkok5"]
+[ext_resource type="Texture2D" uid="uid://c8ocnhjy4yt24" path="res://assets/art/elements-spells-magics/ThunderAnimation.png" id="2_kkok5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh4gx"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ojd"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36gc8"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52im7"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr7fy"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbuy4"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4b7p"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p77au"]
+atlas = ExtResource("2_kkok5")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh4gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ojd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36gc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52im7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr7fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbuy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4b7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p77au")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="ThunderAnimation" type="Node3D"]
+script = ExtResource("1_kkok5")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

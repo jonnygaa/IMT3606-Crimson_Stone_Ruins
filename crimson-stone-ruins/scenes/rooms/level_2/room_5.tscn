@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://w86qv31qyheg"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_06r7y"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_bv6sf"]
+[ext_resource type="PackedScene" uid="uid://dng55cpcgee78" path="res://scenes/rooms/enemy_spawn_point.tscn" id="3_wy2uc"]
+[ext_resource type="PackedScene" uid="uid://bsc0r0wvkkq6n" path="res://scenes/rooms/chest_spawn_point.tscn" id="4_bv6sf"]
+[ext_resource type="Texture2D" uid="uid://b03k1b80nx68a" path="res://assets/art/environments/WallTextureRed.png" id="5_f1npp"]
+[ext_resource type="Texture2D" uid="uid://dqsp0yg8yi2m0" path="res://assets/art/environments/FloorTextureRed.png" id="6_4yfps"]
+[ext_resource type="Texture2D" uid="uid://djw50vbv2lohi" path="res://assets/art/environments/FloorBlue.png" id="6_f1npp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wjim"]
+albedo_texture = ExtResource("5_f1npp")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kbey"]
+albedo_texture = ExtResource("6_4yfps")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvpwc"]
+albedo_texture = ExtResource("6_f1npp")
+texture_filter = 0
+
+[node name="Room5" type="Node3D" groups=["persist"]]
+script = ExtResource("1_06r7y")
+voxel_scale = Vector3(3, 2, 3)
+min_count = 1
+max_count = 1
+
+[node name="RemoveUnusedDoor" parent="." instance=ExtResource("2_bv6sf")]
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_wy2uc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.896039, 0.6)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("3_wy2uc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.896039, -0.6)
+
+[node name="ChestSpawnPoint" parent="." instance=ExtResource("4_bv6sf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+
+[node name="RoomCell1" type="Node3D" parent="."]
+
+[node name="TextureWall1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?1" type="CSGBox3D" parent="RoomCell1/TextureWall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, 0.0406978)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?2" type="CSGBox3D" parent="RoomCell1/TextureWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, -0.0649126)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall3" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="TextureWall4" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_4kbey")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_vvpwc")
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoor" method="_on_dungeon_done_generating"]

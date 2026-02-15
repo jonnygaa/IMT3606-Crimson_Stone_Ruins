@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj7tx2qhvfocv"]
+
+[ext_resource type="Script" uid="uid://cb030qim5fjko" path="res://addons/SimpleTutorial/TutorialRoom3D.gd" id="1_roplj"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_bv2jp"]
+[ext_resource type="PackedScene" uid="uid://dng55cpcgee78" path="res://scenes/rooms/enemy_spawn_point.tscn" id="3_8olhd"]
+[ext_resource type="Script" uid="uid://b8k1ktg6xryjo" path="res://scripts/dungeon/tutorial_info/enemy_tutorial.gd" id="4_bv2jp"]
+[ext_resource type="Texture2D" uid="uid://bupcerp077soi" path="res://assets/art/environments/WallTextureBlue.png" id="5_ie4iw"]
+[ext_resource type="Texture2D" uid="uid://bwvjaxvt55sk1" path="res://assets/art/environments/FloorTextureBlue.png" id="6_ljuen"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8olhd"]
+size = Vector3(0.796533, 0.3, 0.765625)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mila3"]
+albedo_texture = ExtResource("5_ie4iw")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5lv6"]
+albedo_texture = ExtResource("6_ljuen")
+texture_filter = 0
+
+[node name="Room1" type="Node3D"]
+script = ExtResource("1_roplj")
+voxel_scale = Vector3(3, 2, 3)
+min_count = 1
+max_count = 1
+
+[node name="RemoveUnusedDoor" parent="." instance=ExtResource("2_bv2jp")]
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("3_8olhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.896, 0)
+
+[node name="TutorialInfo" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.5, 0.1)
+script = ExtResource("4_bv2jp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialInfo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0221435, 0.070764, -0.0294922)
+shape = SubResource("BoxShape3D_8olhd")
+
+[node name="RoomCell1" type="Node3D" parent="."]
+
+[node name="TextureWall1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_mila3")
+
+[node name="DOOR?1" type="CSGBox3D" parent="RoomCell1/TextureWall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, 0.0406978)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_mila3")
+
+[node name="DOOR?2" type="CSGBox3D" parent="RoomCell1/TextureWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, -0.0649126)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall3" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_mila3")
+
+[node name="TextureWall4" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_mila3")
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_d5lv6")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_d5lv6")
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoor" method="_on_dungeon_done_generating"]
+[connection signal="body_entered" from="TutorialInfo" to="TutorialInfo" method="_on_body_entered"]

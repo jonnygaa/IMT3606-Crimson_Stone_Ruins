@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://dkpvhk478ai2m"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_5ugli"]
+[ext_resource type="PackedScene" uid="uid://b0eombm5b21yn" path="res://scenes/spell_animations/wind_animation.tscn" id="2_pndg3"]
+
+[resource]
+script = ExtResource("1_5ugli")
+spell_name = "Wind I"
+element_order = Array[int]([4])
+sprite_animation = ExtResource("2_pndg3")
+damage = 1
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

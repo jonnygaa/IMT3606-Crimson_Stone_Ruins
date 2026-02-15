@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://ci4yhw50qv1wh"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_thrn2"]
+[ext_resource type="PackedScene" uid="uid://d15f5jcdv20vw" path="res://scenes/spell_animations/shrapnel_animation.tscn" id="2_a48rc"]
+
+[resource]
+script = ExtResource("1_thrn2")
+spell_name = "Shrapnel"
+element_order = Array[int]([4, 3])
+sprite_animation = ExtResource("2_a48rc")
+damage = 3
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

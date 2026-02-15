@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://slhooi5fv7es"]
+
+[ext_resource type="FontFile" uid="uid://c8ty0nw4ejspa" path="res://assets/font/MinecraftRegular-Bmg3.otf" id="1_5xs0v"]
+[ext_resource type="Script" uid="uid://bo4voskedbjtg" path="res://scripts/ui/spell_hover_info.gd" id="1_jucq5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_umosw"]
+font = ExtResource("1_5xs0v")
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3hq7"]
+font = ExtResource("1_5xs0v")
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SpellHoverInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jucq5")
+
+[node name="IngredientsOrder" type="Label" parent="."]
+layout_mode = 0
+offset_right = 221.0
+offset_bottom = 33.0
+text = "Order: fire->fire"
+label_settings = SubResource("LabelSettings_umosw")
+
+[node name="Damage" type="Label" parent="."]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 86.0
+offset_bottom = 59.0
+text = "Dmg: 32"
+label_settings = SubResource("LabelSettings_i3hq7")

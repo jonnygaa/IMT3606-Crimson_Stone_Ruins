@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://bvivwvj0j1j3j"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_a3bdm"]
+[ext_resource type="PackedScene" uid="uid://dc26kobjlis7r" path="res://scenes/spell_animations/fire_animation.tscn" id="2_tykco"]
+
+[resource]
+script = ExtResource("1_a3bdm")
+spell_name = "Fire I"
+element_order = Array[int]([0])
+sprite_animation = ExtResource("2_tykco")
+damage = 1
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

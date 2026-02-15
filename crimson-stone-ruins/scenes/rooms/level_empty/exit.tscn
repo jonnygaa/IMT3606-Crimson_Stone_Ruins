@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://canghibqjj5wi"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_4bipo"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_16i2x"]
+[ext_resource type="Script" uid="uid://k7k5ayq1wm7x" path="res://scripts/dungeon/exit_zone.gd" id="3_8sb6o"]
+[ext_resource type="Texture2D" uid="uid://cop6sq6arx4t1" path="res://assets/level/ladder.png" id="4_8f6ho"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i55v"]
+albedo_color = Color(1, 0.392157, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvttc"]
+albedo_color = Color(1, 0.392157, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0yfs"]
+size = Vector3(0.4, 0.3, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3co1x"]
+atlas = ExtResource("4_8f6ho")
+region = Rect2(0, 0, 28, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mse5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3co1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Exit" type="Node3D" groups=["persist"]]
+script = ExtResource("1_4bipo")
+voxel_scale = Vector3(3, 2, 3)
+min_count = 1
+max_count = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_1i55v")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(2.8, 1.9, 2.834)
+material = SubResource("StandardMaterial3D_mvttc")
+
+[node name="DOOR" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02969, 0, -1.473)
+operation = 2
+size = Vector3(1, 1.9, 0.146)
+
+[node name="RemoveUnusedDoors" parent="." instance=ExtResource("2_16i2x")]
+
+[node name="Area3D" type="Area3D" parent="." groups=["exit_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.947945, 1.17531)
+script = ExtResource("3_8sb6o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070764, -0.05)
+shape = SubResource("BoxShape3D_b0yfs")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -1.74846e-08, -1, 0, 0.4, -4.37114e-08, 0, 0, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_mse5c")
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoors" method="_on_dungeon_done_generating"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

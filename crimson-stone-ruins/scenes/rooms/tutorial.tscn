@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1qwp7jalstlx"]
+
+[ext_resource type="PackedScene" uid="uid://dvpn8sqyw6sdo" path="res://scenes/manager/tutorial_manager.tscn" id="1_1028e"]
+[ext_resource type="Script" uid="uid://ds7be6fcgkiat" path="res://scripts/debug_camera.gd" id="3_l5baa"]
+[ext_resource type="PackedScene" uid="uid://hmi5nkik3md2" path="res://scenes/ui/game_menu.tscn" id="4_1028e"]
+[ext_resource type="PackedScene" uid="uid://bgau1w5gqtpc1" path="res://scenes/ui/options_menu.tscn" id="5_ut475"]
+[ext_resource type="PackedScene" uid="uid://cpsll74hyyywn" path="res://scenes/ui/equip_accessory.tscn" id="6_lkn7g"]
+[ext_resource type="Script" uid="uid://v53sgfpmgy4y" path="res://scripts/accessories/dungeon_accessory.gd" id="7_vgvhp"]
+[ext_resource type="PackedScene" uid="uid://brvlrp8gvuvti" path="res://scenes/ui/tutorial_info.tscn" id="8_ut475"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfqav"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_8opm2"]
+sky_material = SubResource("ProceduralSkyMaterial_lfqav")
+
+[sub_resource type="Environment" id="Environment_ypmp6"]
+background_mode = 2
+sky = SubResource("Sky_8opm2")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Tutorial" type="Node3D"]
+
+[node name="TutorialManager" parent="." instance=ExtResource("1_1028e")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ypmp6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5, 0)
+shadow_enabled = true
+
+[node name="DebugCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 12, 26)
+current = true
+script = ExtResource("3_l5baa")
+
+[node name="Accessory" type="Sprite2D" parent="."]
+position = Vector2(64, 584)
+scale = Vector2(4, 4)
+script = ExtResource("7_vgvhp")
+
+[node name="GameMenu" parent="." instance=ExtResource("4_1028e")]
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_ut475")]
+
+[node name="EquipAccessory" parent="." instance=ExtResource("6_lkn7g")]
+
+[node name="Tutorial_info" parent="." instance=ExtResource("8_ut475")]

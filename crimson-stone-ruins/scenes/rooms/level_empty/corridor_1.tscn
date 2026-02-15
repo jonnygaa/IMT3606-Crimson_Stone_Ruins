@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch74cneo8oeqx"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_xu1lf"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_1420p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu1lf"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y80kh"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Corridor1" type="Node3D" groups=["persist"]]
+script = ExtResource("1_xu1lf")
+voxel_scale = Vector3(3, 2, 3)
+max_count = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_xu1lf")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(2.90137, 1.9, 2.81055)
+material = SubResource("StandardMaterial3D_y80kh")
+
+[node name="DOOR?" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, 1.43003)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="DOOR?2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, -1.45272)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="DOOR?3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.4579, 0, 0)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="DOOR?4" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.46686, 0, 0)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="RemoveUnusedDoors" parent="." instance=ExtResource("2_1420p")]
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoors" method="_on_dungeon_done_generating"]

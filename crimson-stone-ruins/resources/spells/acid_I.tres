@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://dji36c4eiuhn8"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_l34t4"]
+[ext_resource type="PackedScene" uid="uid://b2uv2v2nqvw6f" path="res://scenes/spell_animations/acid_animation.tscn" id="2_bb17b"]
+
+[resource]
+script = ExtResource("1_l34t4")
+spell_name = "Acid I"
+element_order = Array[int]([5])
+sprite_animation = ExtResource("2_bb17b")
+damage = 1
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

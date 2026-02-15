@@ -1,0 +1,141 @@
+[gd_scene load_steps=16 format=3 uid="uid://bowhjxhfvpuxs"]
+
+[ext_resource type="Script" uid="uid://dobslbs0unypd" path="res://scripts/combat/combat_room_1.gd" id="1_y4k41"]
+[ext_resource type="PackedScene" uid="uid://csgt05ppgtguh" path="res://scenes/player/player_combat.tscn" id="2_y4k41"]
+[ext_resource type="PackedScene" uid="uid://dmxnatn3xkwm0" path="res://scenes/enemies/enemy_combat.tscn" id="3_1pjs0"]
+[ext_resource type="PackedScene" uid="uid://bjcmrr0bcxrqg" path="res://scenes/combat/Circle.tscn" id="4_1pjs0"]
+[ext_resource type="Script" uid="uid://43pr6sxcogrh" path="res://scripts/combat/skip_combat.gd" id="5_35od2"]
+[ext_resource type="PackedScene" uid="uid://b6f1h4eqtgme7" path="res://scenes/combat/slot_highlighter.tscn" id="5_cpd3r"]
+[ext_resource type="PackedScene" uid="uid://b0lshdmq57x1x" path="res://scenes/ui/combat_tutorial.tscn" id="5_y4k41"]
+[ext_resource type="PackedScene" uid="uid://7xuiqcip3beo" path="res://scenes/combat/target_indicator_3d.tscn" id="8_35od2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m3qoa"]
+
+[sub_resource type="Sky" id="Sky_ay4xk"]
+sky_material = SubResource("ProceduralSkyMaterial_m3qoa")
+
+[sub_resource type="Environment" id="Environment_rqjd5"]
+background_mode = 2
+sky = SubResource("Sky_ay4xk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mk84"]
+albedo_color = Color(0.42365, 0.423651, 0.423651, 1)
+disable_receive_shadows = true
+
+[sub_resource type="Gradient" id="Gradient_epywx"]
+offsets = PackedFloat32Array(0.253731, 0.58209)
+colors = PackedColorArray(0.0835826, 0.42002, 0.757401, 1, 0.466181, 0.466181, 0.466181, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ay4xk"]
+gradient = SubResource("Gradient_epywx")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0byh"]
+albedo_texture = SubResource("GradientTexture2D_ay4xk")
+
+[node name="CombatRoom1" type="Node3D" node_paths=PackedStringArray("player_slot", "ingredietn_slots_parent")]
+script = ExtResource("1_y4k41")
+player_slot = NodePath("CSGBox3D/PlayerSlot")
+ingredietn_slots_parent = NodePath("CSGBox3D/Node3D/IngredientSlots")
+player_sceness = ExtResource("2_y4k41")
+ennemy_sceness = Array[PackedScene]([ExtResource("3_1pjs0"), ExtResource("3_1pjs0"), ExtResource("3_1pjs0")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rqjd5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.667313, 0.744778, 0, -0.744778, 0.667313, 0, 3.94375, 4.72216)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21557, 0)
+size = Vector3(8, 0.432141, 3)
+material = SubResource("StandardMaterial3D_4mk84")
+
+[node name="PlayerSlot" type="Marker3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29157, 0.21, 0)
+
+[node name="EnnemySlot1" type="Marker3D" parent="CSGBox3D" groups=["enemy_slot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42163, 0.209832, -1.43647e-05)
+
+[node name="EnnemySlot2" type="Marker3D" parent="CSGBox3D" groups=["enemy_slot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54389, 0.209832, -0.400014)
+
+[node name="EnnemySlot3" type="Marker3D" parent="CSGBox3D" groups=["enemy_slot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04133, 0.209832, 0.370067)
+
+[node name="Node3D" parent="CSGBox3D" instance=ExtResource("4_1pjs0")]
+transform = Transform3D(-1, -1.50996e-07, -6.60024e-15, 0, -4.37114e-08, 1, -1.50996e-07, 1, 4.37114e-08, -1.11329, 0.73, 0.745634)
+
+[node name="IngredientSlots" type="Node3D" parent="CSGBox3D/Node3D"]
+transform = Transform3D(-1, -8.47033e-22, -1.50996e-07, -1.50996e-07, -4.37114e-08, 1, -6.60024e-15, 1, 4.37114e-08, 0, 0.0111307, 0)
+
+[node name="Slot1" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -2.52435e-29, 0, 1, 0, 0, 3.58732e-43, 1, 0, 0.413568, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot1" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="Slot2" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -7.57306e-29, 0, 1, 0, 0, 1.43493e-42, 1, 0.3648, 0.193252, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot2" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="Slot3" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -1.26218e-28, 0, 1, 0, 0, 2.15239e-42, 1, 0.3648, -0.190867, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot3" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="Slot4" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -2.52435e-29, 0, 1, 0, 0, 3.58732e-43, 1, 0, -0.414, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot4" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="Slot5" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -1.26218e-28, 0, 1, 0, 0, 2.15239e-42, 1, -0.365, -0.191, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot5" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="Slot6" type="Marker3D" parent="CSGBox3D/Node3D/IngredientSlots"]
+transform = Transform3D(1, 0, -7.57306e-29, 0, 1, 0, 0, 1.0762e-42, 1, -0.365, 0.193, 0.00883985)
+visible = false
+
+[node name="SlotHighlighter" parent="CSGBox3D/Node3D/IngredientSlots/Slot6" instance=ExtResource("5_cpd3r")]
+transform = Transform3D(1, 0, -1.2611e-29, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0110497)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0106201, 1.4399, -1.6334)
+size = Vector3(8.02417, 3.31018, 0.25769)
+material = SubResource("StandardMaterial3D_b0byh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.982532, 0.186095, 0, -0.186095, 0.982532, -0.323367, 1.42718, 2.83803)
+projection = 1
+fov = 77.0784
+size = 2.5
+
+[node name="Combat_UI" parent="." instance=ExtResource("5_y4k41")]
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_right = 41.0
+offset_bottom = 31.0
+text = "Skip"
+script = ExtResource("5_35od2")
+
+[node name="TargetIndicator3D" parent="." instance=ExtResource("8_35od2")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 0, 1, 0)
+visible = false
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

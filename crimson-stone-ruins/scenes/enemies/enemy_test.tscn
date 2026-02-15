@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://bruypckyydywq"]
+
+[ext_resource type="Texture2D" uid="uid://dhbp06my5cua3" path="res://art/Wolf.png" id="1_1qx1w"]
+[ext_resource type="Script" uid="uid://ctiiavjq5a436" path="res://scripts/enemies/enemy.gd" id="1_2vt0o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2vt0o"]
+radius = 0.0929302
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idy28"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgbgi"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80gfh"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksehb"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w3lj"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxfhs"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk7n5"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_404dm"]
+atlas = ExtResource("1_1qx1w")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1w3lj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idy28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgbgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80gfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksehb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w3lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxfhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk7n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_404dm")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_idy28"]
+radius = 0.100413
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_2vt0o")
+speed = 2
+
+[node name="Hurtbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0746564, 0)
+shape = SubResource("SphereShape3D_2vt0o")
+
+[node name="Pivot" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0600351, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_1w3lj")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 2
+frame_progress = 0.287659
+
+[node name="Roombox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roombox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+shape = SubResource("SphereShape3D_idy28")
+
+[connection signal="body_entered" from="Roombox" to="." method="_on_roombox_body_entered"]

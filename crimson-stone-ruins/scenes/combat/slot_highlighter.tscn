@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6f1h4eqtgme7"]
+
+[ext_resource type="Shader" uid="uid://cmwj20c0jy2la" path="res://resources/ui/slot_highlighter.gdshader" id="1_7hq1x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrr3f"]
+render_priority = 0
+shader = ExtResource("1_7hq1x")
+shader_parameter/flash_speed = 2.0
+shader_parameter/purple_color = Color(0.5, 0, 0.5, 1)
+shader_parameter/min_brightness = 0.3
+
+[node name="SlotHighlighter" type="Node3D"]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+inner_radius = 0.03
+outer_radius = 0.04
+sides = 32
+material = SubResource("ShaderMaterial_rrr3f")

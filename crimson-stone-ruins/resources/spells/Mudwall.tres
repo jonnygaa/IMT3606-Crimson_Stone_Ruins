@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=4 format=3 uid="uid://dj6m1b7ujs7us"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_4nixx"]
+[ext_resource type="PackedScene" uid="uid://b7due57qn5fl2" path="res://scenes/spell_effects/defense_effect.tscn" id="1_482s6"]
+[ext_resource type="PackedScene" uid="uid://bnepf86lxpei3" path="res://scenes/spell_animations/mud_wall_animation.tscn" id="3_rbukx"]
+
+[resource]
+script = ExtResource("1_4nixx")
+spell_name = "Mudwall"
+element_order = Array[int]([3, 2])
+sprite_animation = ExtResource("3_rbukx")
+damage = 0
+effects_list = Array[PackedScene]([ExtResource("1_482s6")])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

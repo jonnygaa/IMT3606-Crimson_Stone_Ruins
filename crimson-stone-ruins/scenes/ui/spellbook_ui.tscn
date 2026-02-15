@@ -1,0 +1,497 @@
+[gd_scene load_steps=21 format=3 uid="uid://bstm6oijbtenq"]
+
+[ext_resource type="Script" uid="uid://ipe4tpfuwl3o" path="res://scripts/ui/spellbook_ui.gd" id="1_d5jvj"]
+[ext_resource type="Texture2D" uid="uid://5holqobvc6lh" path="res://assets/0_external/PixelBooksVers1.0/RADL_Book.png" id="1_r06kr"]
+[ext_resource type="Script" uid="uid://bgxbhrdah43xw" path="res://scripts/ui/book_sprite.gd" id="2_d5jvj"]
+[ext_resource type="Texture2D" uid="uid://c5swgv2nydy3a" path="res://assets/0_external/PixelBooksVers1.0/Marker.png" id="4_c4m7k"]
+[ext_resource type="Texture2D" uid="uid://dghf4ngsm15lh" path="res://assets/ui/inventory/fire.png" id="5_3qfiq"]
+[ext_resource type="Texture2D" uid="uid://df7j05l8yqcd6" path="res://assets/ui/inventory/lightning.png" id="6_6utmn"]
+[ext_resource type="Texture2D" uid="uid://robfs7kl8cd1" path="res://assets/ui/inventory/water.png" id="6_pvr5k"]
+[ext_resource type="Texture2D" uid="uid://dvrtdlv28myp8" path="res://assets/ui/inventory/earth.png" id="7_6utmn"]
+[ext_resource type="Texture2D" uid="uid://tj53jkpvp65p" path="res://assets/ui/inventory/wind.png" id="8_ttgoc"]
+[ext_resource type="Texture2D" uid="uid://cqy4dm42w1d08" path="res://assets/art/ui/Acid.png" id="10_ttgoc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4m7k"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(570, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ejj"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(380, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfsbq"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(190, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3sg3"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(0, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qfiq"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(570, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvr5k"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(760, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6utmn"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(950, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttgoc"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(1140, 0, 190, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5inl"]
+atlas = ExtResource("1_r06kr")
+region = Rect2(570, 0, 190, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvhle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4m7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ejj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfsbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3sg3")
+}],
+"loop": false,
+"name": &"close",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qfiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvr5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6utmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttgoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5inl")
+}],
+"loop": false,
+"name": &"next_page",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3sg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfsbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ejj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4m7k")
+}],
+"loop": false,
+"name": &"open",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qfiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttgoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6utmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvr5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qfiq")
+}],
+"loop": false,
+"name": &"previous_page",
+"speed": 8.0
+}]
+
+[node name="SpellbookUI" type="Control" node_paths=PackedStringArray("info_pages")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d5jvj")
+info_pages = NodePath("Spellbook/Info")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.533333)
+
+[node name="Spellbook" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BookSprite" type="AnimatedSprite2D" parent="Spellbook"]
+texture_filter = 1
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_hvhle")
+animation = &"close"
+autoplay = "open"
+offset = Vector2(4.5, 0)
+script = ExtResource("2_d5jvj")
+
+[node name="FireMarker" type="Sprite2D" parent="Spellbook"]
+position = Vector2(348, -170)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="FireMarkerButton" type="TextureButton" parent="Spellbook/FireMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("5_3qfiq")
+
+[node name="LightningMarker" type="Sprite2D" parent="Spellbook"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(348, -106)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="LightningMarkerButton" type="TextureButton" parent="Spellbook/LightningMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("6_6utmn")
+
+[node name="WaterMarker" type="Sprite2D" parent="Spellbook"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+position = Vector2(348, -42)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="WaterMarkerButton" type="TextureButton" parent="Spellbook/WaterMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("6_pvr5k")
+
+[node name="EarthMarker" type="Sprite2D" parent="Spellbook"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(348, 22)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="EarthMarkerButton" type="TextureButton" parent="Spellbook/EarthMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("7_6utmn")
+
+[node name="WindMarker" type="Sprite2D" parent="Spellbook"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(348, 86)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="WindMarkerButton" type="TextureButton" parent="Spellbook/WindMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("8_ttgoc")
+
+[node name="AcidMarker" type="Sprite2D" parent="Spellbook"]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
+position = Vector2(348, 150)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_c4m7k")
+
+[node name="AcidMarkerButton" type="TextureButton" parent="Spellbook/AcidMarker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("10_ttgoc")
+
+[node name="Info" type="Control" parent="Spellbook"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info-Page1" type="Control" parent="Spellbook/Info"]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -215.0
+offset_right = -40.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spellname" type="Label" parent="Spellbook/Info/Info-Page1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_right = 43.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Spell name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IngredientLabel" type="Label" parent="Spellbook/Info/Info-Page1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -11.5
+offset_right = 44.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ingredients"
+
+[node name="IngredientOrder" type="Label" parent="Spellbook/Info/Info-Page1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.554
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0640106
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Lightning -> Lightning -> Lightning -> Lightning -> Lightning"
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="Spellbook/Info/Info-Page1"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_right = 72.0
+grow_vertical = 0
+text = "Back"
+
+[node name="Info-Page2" type="Control" parent="Spellbook/Info"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -215.0
+offset_right = 285.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpellInformation" type="Label" parent="Spellbook/Info/Info-Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_right = 43.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Information"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Spellbook/Info/Info-Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.071
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0390015
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Spellbook/Info/Info-Page2/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="ElementLabel" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Element: "
+vertical_alignment = 1
+
+[node name="ElemenType" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Fire"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Spellbook/Info/Info-Page2/VBoxContainer"]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Base Damage:"
+
+[node name="DamageNumber" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "100"
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer"]
+layout_mode = 2
+clip_text = true
+
+[node name="EffectLabel" type="Label" parent="Spellbook/Info/Info-Page2/VBoxContainer"]
+layout_mode = 2
+text = "Effects: "
+vertical_alignment = 1
+
+[node name="EffectList" type="VBoxContainer" parent="Spellbook/Info/Info-Page2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Next" type="Button" parent="Spellbook/Info/Info-Page2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 0
+focus_mode = 0
+text = "Close"
+
+[connection signal="animation_changed" from="Spellbook/BookSprite" to="." method="_on_book_sprite_animation_changed"]
+[connection signal="animation_finished" from="Spellbook/BookSprite" to="." method="_on_book_sprite_animation_finished"]
+[connection signal="animation_started" from="Spellbook/BookSprite" to="." method="_on_book_sprite_animation_started"]
+[connection signal="pressed" from="Spellbook/FireMarker/FireMarkerButton" to="." method="_on_fire_marker_button_pressed"]
+[connection signal="pressed" from="Spellbook/LightningMarker/LightningMarkerButton" to="." method="_on_lightning_marker_button_pressed"]
+[connection signal="pressed" from="Spellbook/WaterMarker/WaterMarkerButton" to="." method="_on_water_marker_button_pressed"]
+[connection signal="pressed" from="Spellbook/EarthMarker/EarthMarkerButton" to="." method="_on_earth_marker_button_pressed"]
+[connection signal="pressed" from="Spellbook/WindMarker/WindMarkerButton" to="." method="_on_wind_marker_button_pressed"]
+[connection signal="pressed" from="Spellbook/AcidMarker/AcidMarkerButton" to="." method="_on_acid_marker_button_pressed"]
+[connection signal="button_down" from="Spellbook/Info/Info-Page1/Back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="Spellbook/Info/Info-Page2/Next" to="." method="_on_next_button_down"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

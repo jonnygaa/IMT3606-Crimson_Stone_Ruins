@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2aqt1sr4qnfu"]
+
+[ext_resource type="Script" uid="uid://do3iojf1ip64l" path="res://scripts/combat/attributes/defense.gd" id="1_litqu"]
+
+[node name="Defense" type="Node"]
+script = ExtResource("1_litqu")

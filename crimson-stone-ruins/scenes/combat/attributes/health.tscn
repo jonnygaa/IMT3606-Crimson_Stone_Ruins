@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3g3k1i5axa66"]
+
+[ext_resource type="Script" uid="uid://cfoirq3jxwiqp" path="res://scripts/combat/attributes/health.gd" id="1_17m8t"]
+[ext_resource type="PackedScene" uid="uid://bo3p1so36253p" path="res://scenes/ui/health_bar.tscn" id="2_0j26g"]
+[ext_resource type="FontFile" uid="uid://c8ty0nw4ejspa" path="res://assets/font/MinecraftRegular-Bmg3.otf" id="3_qv6uh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qv6uh"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Health" type="Node3D"]
+script = ExtResource("1_17m8t")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("2_0j26g")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = SubResource("ViewportTexture_qv6uh")
+
+[node name="NumberLaber" type="Label3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00204128, 0.00405521)
+texture_filter = 0
+text = "5"
+font = ExtResource("3_qv6uh")
+font_size = 8
+outline_size = 4

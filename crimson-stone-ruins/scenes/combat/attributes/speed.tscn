@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnlfu33nf57wm"]
+
+[ext_resource type="Script" uid="uid://grfoq88b8vxf" path="res://scripts/combat/attributes/speed.gd" id="1_kh8vu"]
+
+[node name="Speed" type="Node"]
+script = ExtResource("1_kh8vu")

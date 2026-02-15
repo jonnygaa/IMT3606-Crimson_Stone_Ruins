@@ -1,0 +1,253 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkwto6f086rgt"]
+
+[ext_resource type="Script" uid="uid://md136wvacfi0" path="res://scripts/ui/combat_ui.gd" id="1_yikll"]
+[ext_resource type="PackedScene" uid="uid://phblpv1b57a8" path="res://scenes/ui/ingredient_button.tscn" id="2_qe7ik"]
+[ext_resource type="PackedScene" uid="uid://pc5e0rgsu4f1" path="res://scenes/ui/spell_button.tscn" id="3_v4gjg"]
+[ext_resource type="PackedScene" uid="uid://bstm6oijbtenq" path="res://scenes/ui/spellbook_ui.tscn" id="4_2o5so"]
+[ext_resource type="StyleBox" uid="uid://bl50rkyiwc74v" path="res://resources/ui/panel_style_options_bar.tres" id="5_qe7ik"]
+
+[node name="Combat_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yikll")
+ingredient_button_scene = ExtResource("2_qe7ik")
+spell_button_scene = ExtResource("3_v4gjg")
+spellbook_scene = ExtResource("4_2o5so")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.018
+anchor_right = 0.5
+anchor_bottom = 0.018
+offset_left = -41.0
+offset_top = -11.664
+offset_right = 41.0
+offset_bottom = 11.336
+grow_horizontal = 2
+text = "Combat UI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsBarMain" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.93
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.199951
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_qe7ik")
+
+[node name="First selections" type="HBoxContainer" parent="OptionsBarMain"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Spellbook" type="Button" parent="OptionsBarMain/First selections"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Spellbook"
+
+[node name="Clear_button" type="Button" parent="OptionsBarMain/First selections"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Clear ingredients"
+
+[node name="SelectIngredientsButton" type="Button" parent="OptionsBarMain/First selections"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+text = "Select ingredients"
+
+[node name="Confirm_button" type="Button" parent="OptionsBarMain/First selections"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Confirm"
+
+[node name="Second selections" type="HBoxContainer" parent="OptionsBarMain"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Spellbook" type="Button" parent="OptionsBarMain/Second selections"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Spellbook"
+
+[node name="Clear_button" type="Button" parent="OptionsBarMain/Second selections"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Clear ingredients"
+
+[node name="Select_target_button" type="Button" parent="OptionsBarMain/Second selections"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Select Target"
+
+[node name="Third selections" type="HBoxContainer" parent="OptionsBarMain"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Clear_button" type="Button" parent="OptionsBarMain/Third selections"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Clear ingredients"
+
+[node name="Execute_button" type="Button" parent="OptionsBarMain/Third selections"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Execute spells"
+
+[node name="OptionsBarElement" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.874
+anchor_right = 0.5
+anchor_bottom = 0.92
+offset_top = 7.776
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_qe7ik")
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsBarElement"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="ElementButtonContainer" type="HBoxContainer" parent="OptionsBarElement/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Fire"
+
+[node name="Button2" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Lightning"
+
+[node name="Button3" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Water"
+
+[node name="Button4" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Earth"
+
+[node name="Button5" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Wind"
+
+[node name="Button6" type="Button" parent="OptionsBarElement/MarginContainer/ElementButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Acid"
+
+[node name="SpellContainer" type="HBoxContainer" parent="OptionsBarElement/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="OptionsBarIngredients" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.864
+anchor_right = 0.5
+anchor_bottom = 0.864
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_qe7ik")
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsBarIngredients"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 3
+
+[node name="IngredientButtonContainer" type="VBoxContainer" parent="OptionsBarIngredients/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="TutorialBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.45098)
+
+[node name="TutorialInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.202
+anchor_right = 0.5
+anchor_bottom = 0.202
+offset_left = -144.0
+offset_top = 0.103989
+offset_right = 144.0
+offset_bottom = 22.104
+grow_horizontal = 2
+grow_vertical = 0
+text = "This is the combat"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.364
+anchor_right = 0.5
+anchor_bottom = 1.364
+offset_left = -28.0
+offset_top = -724.872
+offset_right = 28.0
+offset_bottom = -704.872
+theme_override_font_sizes/font_size = 12
+text = "Next"
+
+[connection signal="pressed" from="OptionsBarMain/First selections/Spellbook" to="." method="_on_spellbook_pressed"]
+[connection signal="pressed" from="OptionsBarMain/First selections/Clear_button" to="." method="_on_clear_pressed"]
+[connection signal="toggled" from="OptionsBarMain/First selections/SelectIngredientsButton" to="." method="_on_select_button_toggled"]
+[connection signal="pressed" from="OptionsBarMain/First selections/Confirm_button" to="." method="_next_option_selection"]
+[connection signal="pressed" from="OptionsBarMain/Second selections/Spellbook" to="." method="_on_spellbook_pressed"]
+[connection signal="pressed" from="OptionsBarMain/Second selections/Clear_button" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="OptionsBarMain/Second selections/Select_target_button" to="." method="_on_select_target_button_pressed"]
+[connection signal="pressed" from="OptionsBarMain/Third selections/Clear_button" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="OptionsBarMain/Third selections/Execute_button" to="." method="_on_execute_button_pressed"]

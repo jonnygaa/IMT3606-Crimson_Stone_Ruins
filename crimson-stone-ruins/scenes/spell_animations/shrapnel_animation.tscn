@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://d15f5jcdv20vw"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_pc5no"]
+[ext_resource type="Texture2D" uid="uid://db7tv3yb7cmwm" path="res://assets/art/elements-spells-magics/ShrapnelAnimation.png" id="2_pc5no"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydjbv"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdtpc"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8plex"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhbo"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij0y1"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oc5b"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1cjm"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52oir"]
+atlas = ExtResource("2_pc5no")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydjbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdtpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8plex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij0y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oc5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1cjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52oir")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="ShrapnelAnimation" type="Node3D"]
+script = ExtResource("1_pc5no")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

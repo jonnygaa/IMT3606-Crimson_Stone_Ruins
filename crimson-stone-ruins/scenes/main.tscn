@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bb617udem6o00"]
+
+[ext_resource type="PackedScene" uid="uid://dkc5xi2t02532" path="res://scenes/enemies/enemy.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://drvs3e40xqobl" path="res://scripts/enemies/ennemy_area.gd" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://lye7qhdc6imu" path="res://scenes/player/player.tscn" id="2_sugp2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.380392)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, -8.74228e-09, 8.74228e-08, -8.74228e-08, -0.1, 0, 8.74228e-08, -7.64274e-16, -1, 0, -0.001, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 5.96046e-08, 1, 0, -1, 5.96046e-08, 0, 5, 0)
+shadow_enabled = true
+
+[node name="Enemy0" parent="." instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Enemy1" parent="." instance=ExtResource("1_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="Room0" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 10, 3.8, 0)
+script = ExtResource("2_jyhfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room0"]
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room0"]
+material_override = SubResource("StandardMaterial3D_0xm2m")
+mesh = SubResource("BoxMesh_h2yge")
+skeleton = NodePath("")
+
+[node name="Room1" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, -10, 3.8, 0)
+script = ExtResource("2_jyhfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room1"]
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room1"]
+material_override = SubResource("StandardMaterial3D_0xm2m")
+mesh = SubResource("BoxMesh_h2yge")
+skeleton = NodePath("")
+
+[node name="Player" parent="." instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39059, 2.35163, 15.3003)

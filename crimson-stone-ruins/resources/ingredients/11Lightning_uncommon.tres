@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://g3tm5j7egaj1"]
+
+[ext_resource type="Texture2D" uid="uid://bhgh6tv6pd6cy" path="res://assets/ui/inventory/lightning_uncommon.png" id="1_ryxte"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_ssof1"]
+
+[resource]
+script = ExtResource("2_ssof1")
+id = 0
+name = "Lightning Vile II"
+quality = 1
+element = 1
+icon = ExtResource("1_ryxte")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

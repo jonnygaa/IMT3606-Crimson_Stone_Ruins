@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://b0r0xq8swuyo3"]
+
+[ext_resource type="Texture2D" uid="uid://tgufjoiigky1" path="res://assets/ui/inventory/acid_mythical.png" id="1_56cx5"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_68e23"]
+
+[resource]
+script = ExtResource("2_68e23")
+id = 0
+name = "Sulfur IV"
+quality = 3
+element = 5
+icon = ExtResource("1_56cx5")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

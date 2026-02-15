@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3rp51bopsj6e"]
+
+[ext_resource type="Texture2D" uid="uid://dvrtdlv28myp8" path="res://assets/ui/inventory/earth.png" id="1_egqyu"]
+
+[node name="Earth" type="Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_egqyu")

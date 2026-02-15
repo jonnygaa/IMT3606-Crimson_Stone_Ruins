@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://c0m1efpdrjr4f"]
+
+[ext_resource type="Texture2D" uid="uid://boh8vh47x3wxa" path="res://assets/ui/inventory/acid_rare.png" id="1_apcry"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_qxirt"]
+
+[resource]
+script = ExtResource("2_qxirt")
+id = 0
+name = "Sulfur III"
+quality = 2
+element = 5
+icon = ExtResource("1_apcry")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

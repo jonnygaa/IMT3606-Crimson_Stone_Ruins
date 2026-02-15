@@ -1,0 +1,3 @@
+[gd_scene load_steps=0 format=3 uid="uid://bsc0r0wvkkq6n"]
+
+[node name="ChestSpawnPoint" type="Node3D" groups=["chest_spawn", "face_player_sprite"]]

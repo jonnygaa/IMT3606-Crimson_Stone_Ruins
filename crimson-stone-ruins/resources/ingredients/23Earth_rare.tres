@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cepwcmyw56l1o"]
+
+[ext_resource type="Texture2D" uid="uid://tk8gc4ptvias" path="res://assets/ui/inventory/earth_rare.png" id="1_82x7q"]
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="2_7kdlb"]
+
+[resource]
+script = ExtResource("2_7kdlb")
+id = 0
+name = "Dirt III"
+quality = 2
+element = 3
+icon = ExtResource("1_82x7q")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

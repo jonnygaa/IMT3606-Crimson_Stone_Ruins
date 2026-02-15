@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvpn8sqyw6sdo"]
+
+[ext_resource type="Script" uid="uid://e3iqeqxyhopi" path="res://scripts/mangers/tutorial_manager.gd" id="1_vtu75"]
+[ext_resource type="PackedScene" uid="uid://teq4w8q0q2is" path="res://scenes/enemies/tutorial_enemy.tscn" id="2_yxhg8"]
+
+[node name="TutorialManager" type="Node"]
+script = ExtResource("1_vtu75")
+enemies_list = Dictionary[int, PackedScene]({
+1000: ExtResource("2_yxhg8")
+})

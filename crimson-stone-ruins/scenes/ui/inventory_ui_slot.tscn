@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5beto17ev1nk"]
+
+[ext_resource type="Texture2D" uid="uid://cor0yhj7rechn" path="res://assets/ui/inventory/inventory-slot.png" id="1_11x7s"]
+[ext_resource type="Script" uid="uid://ds5h2744aqeel" path="res://scripts/ui/inventory_ui_slot.gd" id="1_715m0"]
+[ext_resource type="FontFile" uid="uid://c8ty0nw4ejspa" path="res://assets/font/MinecraftRegular-Bmg3.otf" id="3_4aarv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwtpo"]
+font = ExtResource("3_4aarv")
+font_size = 20
+
+[node name="InventoryUISlot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_715m0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_11x7s")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="IngredientDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="CountLabel" type="Label" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 11.0
+offset_right = 31.0
+offset_bottom = 31.0
+label_settings = SubResource("LabelSettings_kwtpo")
+horizontal_alignment = 2
+vertical_alignment = 2

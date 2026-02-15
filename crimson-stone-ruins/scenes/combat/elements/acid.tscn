@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw5aoefufan3l"]
+
+[ext_resource type="Texture2D" uid="uid://bab8guccve7w3" path="res://assets/ui/inventory/acid.png" id="1_h83e1"]
+
+[node name="Acid" type="Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_h83e1")

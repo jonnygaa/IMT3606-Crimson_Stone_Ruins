@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://bxydgibcxgqdm"]
+
+[ext_resource type="Script" uid="uid://dqxmejuii5tla" path="res://scripts/ingredients/basic_ingredient.gd" id="1_amhek"]
+[ext_resource type="Texture2D" uid="uid://tj53jkpvp65p" path="res://assets/ui/inventory/wind.png" id="1_u2usu"]
+
+[resource]
+script = ExtResource("1_amhek")
+id = 0
+name = "Wind Vile I"
+quality = 0
+element = 4
+icon = ExtResource("1_u2usu")
+metadata/_custom_type_script = "uid://dqxmejuii5tla"

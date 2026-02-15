@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dng55cpcgee78"]
+
+[ext_resource type="Script" uid="uid://b0kg1p1hxt2kf" path="res://scripts/dungeon/enemy_spawn.gd" id="1_p2vsu"]
+
+[node name="EnemySpawnPoint" type="Node3D" groups=["enemy_spawn", "face_player_sprite"]]
+script = ExtResource("1_p2vsu")

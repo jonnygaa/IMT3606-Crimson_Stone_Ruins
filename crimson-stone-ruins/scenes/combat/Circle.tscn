@@ -1,0 +1,726 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjcmrr0bcxrqg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_krvjd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwbdw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hwky"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2kx6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb51x"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwujw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+
+[node name="Large outer circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.501575
+outer_radius = 0.514006
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Large outer circle 2" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.482373
+outer_radius = 0.492584
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="First inner circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.406789
+outer_radius = 0.418287
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Fourth inner circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.116378
+outer_radius = 0.121506
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Fifth inner circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.0855875
+outer_radius = 0.0908799
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Third inner circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.167226
+outer_radius = 0.172627
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Third inner circle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000986016, 0, 0.193989)
+operation = 2
+radius = 0.064
+height = 0.005
+sides = 10
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Third inner circle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189679, 0, -0.0974315)
+operation = 2
+radius = 0.066
+height = 0.005
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Third inner circle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.187651, 0, -0.101647)
+operation = 2
+radius = 0.066
+height = 0.005
+
+[node name="Second inner circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.331646
+outer_radius = 0.337522
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(0.884014, 0, -0.467493, 0, 1, 0, 0.467493, 0, 0.884014, -0.187369, 0, 0.274136)
+operation = 2
+size = Vector3(0.062207, 0.01, 0.0224976)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(0.883779, 0, 0.467937, 0, 1, 0, -0.467937, 0, 0.883779, 0.182185, 0, 0.278264)
+operation = 2
+size = Vector3(0.062207, 0.01, 0.0224976)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(1.00003, 0, 5.58794e-08, 0, 1, 0, -5.58794e-08, 0, 1.00003, -0.332838, 0, -0.00487949)
+operation = 2
+size = Vector3(0.0193848, 0.01, 0.0592087)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(1.00003, 0, 5.58794e-08, 0, 1, 0, -5.58794e-08, 0, 1.00003, 0.331478, 0, 0.00254129)
+operation = 2
+size = Vector3(0.0193848, 0.01, 0.0592087)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(0.47955, 0, -0.877551, 0, 1, 0, 0.877551, 0, 0.47955, -0.159096, 0, -0.293616)
+operation = 2
+size = Vector3(0.0193848, 0.01, 0.0592087)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Second inner circle"]
+transform = Transform3D(0.480239, 0, 0.877174, 0, 1, 0, -0.877174, 0, 0.480239, 0.164747, 0, -0.290507)
+operation = 2
+size = Vector3(0.0193848, 0.01, 0.0592087)
+
+[node name="Parital circle small" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.366216, 0, 0.195397)
+inner_radius = 0.167226
+outer_radius = 0.172627
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle small"]
+transform = Transform3D(0.850618, 0, -0.525807, 0, 1, 0, 0.525807, 0, 0.850618, -0.056329, 0, 0.066783)
+operation = 2
+size = Vector3(0.390869, 0.01, 0.176855)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle small"]
+transform = Transform3D(1.00003, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1.00003, -0.0759037, 0, -0.109638)
+operation = 2
+size = Vector3(0.150452, 0.01, 0.176855)
+
+[node name="Parital circle large" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.366216, 0, 0.195397)
+inner_radius = 0.226
+outer_radius = 0.232
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle large"]
+transform = Transform3D(0.850628, 0, -0.525802, 0, 1, 0, 0.525802, 0, 0.850628, -0.0865871, 0, 0.106388)
+operation = 2
+size = Vector3(0.585999, 0.01, 0.27605)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle large"]
+transform = Transform3D(1.00005, 0, 1.38767e-07, 0, 1, 0, -1.38767e-07, 0, 1.00005, -0.11422, 0, -0.16932)
+operation = 2
+size = Vector3(0.227081, 0.01, 0.154077)
+
+[node name="Parital circle2 small" type="CSGTorus3D" parent="."]
+transform = Transform3D(-0.518102, 0, 0.855319, 0, 1, 0, -0.855319, 0, -0.518102, 0.367403, 0, 0.193295)
+inner_radius = 0.167226
+outer_radius = 0.172627
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle2 small"]
+transform = Transform3D(0.850618, 0, -0.525807, 0, 1, 0, 0.525807, 0, 0.850618, -0.056329, 0, 0.066783)
+operation = 2
+size = Vector3(0.390869, 0.01, 0.176855)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle2 small"]
+transform = Transform3D(1.00003, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1.00003, -0.0759037, 0, -0.109638)
+operation = 2
+size = Vector3(0.150452, 0.01, 0.176855)
+
+[node name="Parital circle large2" type="CSGTorus3D" parent="."]
+transform = Transform3D(-0.518027, 0, 0.855364, 0, 1, 0, -0.855364, 0, -0.518027, 0.367, 0, 0.195)
+inner_radius = 0.226
+outer_radius = 0.232
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle large2"]
+transform = Transform3D(0.850628, 0, -0.525802, 0, 1, 0, 0.525802, 0, 0.850628, -0.0865871, 0, 0.106388)
+operation = 2
+size = Vector3(0.585999, 0.01, 0.27605)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle large2"]
+transform = Transform3D(1.00005, 0, 1.38767e-07, 0, 1, 0, -1.38767e-07, 0, 1.00005, -0.11422, 0, -0.16932)
+operation = 2
+size = Vector3(0.227081, 0.01, 0.154077)
+
+[node name="Parital circle3 small" type="CSGTorus3D" parent="."]
+transform = Transform3D(-0.495368, 0, -0.868683, 0, 1, 0, 0.868683, 0, -0.495368, -0.000102729, 0, -0.408957)
+inner_radius = 0.167226
+outer_radius = 0.172627
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle3 small"]
+transform = Transform3D(0.850618, 0, -0.525807, 0, 1, 0, 0.525807, 0, 0.850618, -0.056329, 0, 0.066783)
+operation = 2
+size = Vector3(0.390869, 0.01, 0.176855)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle3 small"]
+transform = Transform3D(1.00003, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, 1.00003, -0.0759037, 0, -0.109638)
+operation = 2
+size = Vector3(0.150452, 0.01, 0.176855)
+
+[node name="Parital circle large3" type="CSGTorus3D" parent="."]
+transform = Transform3D(-0.495459, 0, -0.868631, 0, 1, 0, 0.868631, 0, -0.495459, -8.80348e-10, 0, -0.40693)
+inner_radius = 0.226
+outer_radius = 0.232
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Parital circle large3"]
+transform = Transform3D(0.850628, 0, -0.525802, 0, 1, 0, 0.525802, 0, 0.850628, -0.0865871, 0, 0.106388)
+operation = 2
+size = Vector3(0.585999, 0.01, 0.27605)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Parital circle large3"]
+transform = Transform3D(1.00005, 0, 1.38767e-07, 0, 1, 0, -1.38767e-07, 0, 1.00005, -0.11422, 0, -0.16932)
+operation = 2
+size = Vector3(0.227081, 0.01, 0.154077)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.62921e-05, 6.10482e-06, -0.00111389)
+size = Vector3(0.00343628, 0.002, 0.829755)
+material = SubResource("StandardMaterial3D_dwbdw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.101948)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0300195)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.103874)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0300195)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.216532)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0568225)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.194)
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.464471, 0, 0.885588, 0, 1, 0, -0.885588, 0, 0.464471, 7.62921e-05, 6.10482e-06, -0.00111389)
+size = Vector3(0.00343628, 0.002, 0.829755)
+material = SubResource("StandardMaterial3D_dwbdw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000166662, 0, 0.216352)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0591113)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000546869, 0, -0.104155)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0317456)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000409204, 0, 0.104299)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0317456)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00087002, 0, -0.213553)
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.464842, 0, -0.885394, 0, 1, 0, 0.885394, 0, 0.464842, 7.62921e-05, 6.10482e-06, -0.00111389)
+size = Vector3(0.00343628, 0.002, 0.829755)
+material = SubResource("StandardMaterial3D_dwbdw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32404e-05, 0, 0.104106)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0308789)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000185277, 0, -0.102332)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0308789)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000402846, 0, 0.216811)
+operation = 2
+size = Vector3(0.01, 0.01, 0.0600269)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00043565, 0, -0.213155)
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26918e-05, 0, 0.193532)
+size = Vector3(0.727747, 0.002, 0.00847168)
+material = SubResource("StandardMaterial3D_0hwky")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D4"]
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516847, 0, 0.856078, 0, 1, 0, -0.856078, 0, 0.516847, -0.183254, 0, -0.110646)
+size = Vector3(0.706961, 0.002, 0.00847168)
+material = SubResource("StandardMaterial3D_y2kx6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0112691, 0, 0.00014703)
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516533, 0, -0.856267, 0, 1, 0, 0.856267, 0, 0.516533, 0.183, 0, -0.111)
+size = Vector3(0.706961, 0.002, 0.00847168)
+material = SubResource("StandardMaterial3D_y2kx6")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D6"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.0110026, 0, -0.000612631)
+operation = 2
+radius = 0.064
+height = 0.002
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368029, 0, -0.000628625)
+size = Vector3(0.00424805, 0.006, 0.368201)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.368, 0, -0.001)
+size = Vector3(0.00424805, 0.006, 0.368201)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516429, 0, 0.85633, 0, 1, 0, -0.85633, 0, 0.516429, -0.180382, 0, 0.307543)
+size = Vector3(0.00424805, 0.006, 0.413715)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516533, 0, -0.856267, 0, 1, 0, 0.856267, 0, 0.516533, -0.18, 0, -0.308)
+size = Vector3(0.00424805, 0.006, 0.413715)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516429, 0, 0.85633, 0, 1, 0, -0.85633, 0, 0.516429, 0.18, 0, -0.308)
+size = Vector3(0.00424805, 0.006, 0.413715)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(0.516533, 0, -0.856267, 0, 1, 0, 0.856267, 0, 0.516533, 0.18, 0, 0.308)
+size = Vector3(0.00424805, 0.006, 0.413715)
+material = SubResource("StandardMaterial3D_lb51x")
+
+[node name="Top Circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -1.6929e-08, 0, 0.193645)
+inner_radius = 0.06
+outer_radius = 0.066
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Symbol" type="CSGCombiner3D" parent="Top Circle"]
+
+[node name="Left Circle" type="CSGTorus3D" parent="Top Circle/Symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Top Circle/Symbol"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.0153624, 0, -0.0158583)
+size = Vector3(0.017, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Top Circle/Symbol"]
+transform = Transform3D(0.960521, 0, -0.707107, 0, 1, 0, 0.960521, 0, 0.707107, 0.0222717, 0, -0.0228906)
+size = Vector3(0.01, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Top Circle/Symbol"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.015, 0, -0.0158583)
+size = Vector3(0.017, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Top Circle/Symbol"]
+transform = Transform3D(0.960521, 0, 0.707107, 0, 1, 0, -0.960521, 0, 0.707107, -0.022, 0, -0.023)
+size = Vector3(0.01, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Right Circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.189443, 0, -0.100691)
+inner_radius = 0.06
+outer_radius = 0.066
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Symbol" type="CSGCombiner3D" parent="Right Circle"]
+transform = Transform3D(0.914424, 0, 0.404759, 0, 1, 0, -0.404759, 0, 0.914424, 0, 0, 0)
+
+[node name="Left Circle" type="CSGTorus3D" parent="Right Circle/Symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0.0135429, 0, 0.000151284)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Left Circle2" type="CSGTorus3D" parent="Right Circle/Symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.0150095, 0, -7.83056e-05)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Left Circle4" type="CSGTorus3D" parent="Right Circle/Symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.000652134, 0, -0.013914)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Left Circle5" type="CSGTorus3D" parent="Right Circle/Symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, -0.00101937, 0, 0.0147364)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Left Circle" type="CSGTorus3D" parent="."]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0.189021, 0, -0.100665)
+inner_radius = 0.06
+outer_radius = 0.066
+sides = 64
+material = SubResource("StandardMaterial3D_krvjd")
+
+[node name="Symbol" type="CSGCombiner3D" parent="Left Circle"]
+transform = Transform3D(-0.478738, 0, 0.877958, 0, 1, 0, -0.877958, 0, -0.478738, -0.00023669, 0, 0.000460453)
+
+[node name="Left Circle" type="CSGTorus3D" parent="Left Circle/Symbol"]
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Left Circle/Symbol/Left Circle"]
+transform = Transform3D(1.00003, 0, 3.72529e-08, 0, 1, 0, -3.72529e-08, 0, 1.00003, -0.0107818, 0, 0.00222307)
+operation = 2
+size = Vector3(0.0114639, 0.005, 0.0340359)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Left Circle/Symbol"]
+transform = Transform3D(1.00002, 0, 2.42144e-08, 0, 1, 0, -2.42144e-08, 0, 1.00002, -0.0053651, 0, 0.0139957)
+size = Vector3(0.002, 0.004, 0.007)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Left Circle/Symbol"]
+transform = Transform3D(1.00001, 0, 5.58794e-09, 0, 1, 0, -5.58794e-09, 0, 1.00001, 0.000187561, 0, -0.0225147)
+size = Vector3(0.004, 0.004, 0.0187422)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Left Circle/Symbol"]
+transform = Transform3D(-4.37722e-08, 0, 1.00001, 0, 1, 0, -1.00001, 0, -4.37722e-08, 0.000257716, 0, -0.0230712)
+size = Vector3(0.004, 0.004, 0.016)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="First symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0.390145, 0, 0.203997)
+
+[node name="Left Circle" type="CSGTorus3D" parent="First symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="First symbol"]
+transform = Transform3D(0.745348, 0, -0.666676, 0, 1, 0, 0.666676, 0, 0.745348, 0.0160474, 0.000109863, 0.0165593)
+size = Vector3(0.0187891, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="First symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160474, 0.000109863, 0.0241953)
+size = Vector3(0.0187891, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="First symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0237722, 0.000109863, 0.0163817)
+size = Vector3(0.0187891, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Second symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.65489e-05, 0, 0.452213)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(0.523897, 0, -0.851782, 0, 1, 0, 0.851782, 0, 0.523897, -0.00720472, 0.000109863, 0.0135918)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Second symbol/CSGBox3D"]
+transform = Transform3D(0.490417, 0, -0.871488, 0, 1, 0, 0.871488, 0, 0.490417, 0.00833938, 0, -0.0139682)
+operation = 2
+size = Vector3(0.0355518, 0.00270996, 0.00699966)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Second symbol/CSGBox3D"]
+transform = Transform3D(0.522915, 0, 0.852385, 0, 1, 0, -0.852385, 0, 0.522915, -0.00912008, 0, -0.0118032)
+operation = 2
+size = Vector3(0.0326514, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(0.475547, 0, 0.87969, 0, 1, 0, -0.87969, 0, 0.475547, 0.00635958, 0, 0.0132897)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Second symbol/CSGBox3D4"]
+transform = Transform3D(0.490904, 0, 0.871214, 0, 1, 0, -0.871214, 0, 0.490904, -0.0100761, 0, -0.0132612)
+operation = 2
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Second symbol/CSGBox3D4"]
+transform = Transform3D(0.479259, 0, -0.877674, 0, 1, 0, 0.877674, 0, 0.479259, 0.00884089, 0, -0.0126077)
+operation = 2
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00027588, 0, 0)
+size = Vector3(0.0326514, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Second symbol/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0164237, 0, 0)
+operation = 2
+size = Vector3(0.00265381, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000275876, 0, -0.0133186)
+size = Vector3(0.02, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000275875, 0, -0.01909)
+size = Vector3(0.02, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Second symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.9354e-09, 0, -0.0147559)
+size = Vector3(0.0314307, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Third symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.896904, 0, 0.442226, 0, 1, 0, -0.442226, 0, 0.896904, -0.397923, 0, 0.208273)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00424924, 0, -0.000142172)
+size = Vector3(0.0426782, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0138641, 0, 1.62125e-05)
+size = Vector3(0.00651916, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.022185, 0, 1.62125e-05)
+size = Vector3(0.00651916, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000211, 0, 0.00109698)
+size = Vector3(0.0476569, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06096e-05, 0, -0.0222639)
+size = Vector3(0.0149355, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68817e-05, 0, 0.0219535)
+size = Vector3(0.00651916, 0.00270996, 0.00264534)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170735, 0, -0.0131052)
+size = Vector3(0.0219906, 0.00270996, 0.00432344)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00147218, 0, 0.0129105)
+size = Vector3(0.0215203, 0.00270996, 0.00432344)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0129, 0, -0.000230491)
+size = Vector3(0.0186264, 0.00270996, 0.00432344)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Third symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0129, 0, -5.63562e-05)
+size = Vector3(0.0221127, 0.00270996, 0.00432344)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Fourth symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-0.511203, 0, -0.85946, 0, 1, 0, 0.85946, 0, -0.511203, -0.405878, 0, -0.214603)
+
+[node name="Left Circle" type="CSGTorus3D" parent="Fourth symbol"]
+transform = Transform3D(0.999938, 0, 0.0111699, 0, 1, 0, -0.0111699, 0, 0.999938, 0, 0, 0)
+inner_radius = 0.0118081
+outer_radius = 0.0158853
+sides = 64
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Fourth symbol"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.0237552)
+size = Vector3(0.017, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Fourth symbol"]
+transform = Transform3D(1.35838, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0322854)
+size = Vector3(0.017, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Fourth symbol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0234951)
+size = Vector3(0.017, 0.003, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Fith symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 4.66276e-05, 0, -0.447754)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Fith symbol"]
+transform = Transform3D(1.54788, 0, 0, 0, 1.07184, 0, 0, 0, 1.07184, 0, 0, 0)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Fith symbol"]
+transform = Transform3D(-6.77844e-08, 0, 1, 0, 1, 0, -1.55073, 0, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Fith symbol"]
+transform = Transform3D(1.09653, 0, 0.707107, 0, 1, 0, -1.09653, 0, 0.707107, 0, 0, 0)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Fith symbol"]
+transform = Transform3D(-1.09653, 0, 0.707107, 0, 1, 0, -1.09653, 0, -0.707107, 0, 0, 0)
+size = Vector3(0.0330176, 0.00270996, 0.00325714)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="Sixth symbol" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.540461, 0, -0.841369, 0, 1, 0, 0.841369, 0, 0.540461, 0.400011, 0, -0.213721)
+
+[node name="CSGBox3D3" type="CSGCylinder3D" parent="Sixth symbol"]
+transform = Transform3D(0.999997, 0, 0.00235617, 0, 1, 0, -0.00235617, 0, 0.999997, 0, 0, 0.00204217)
+radius = 0.0131836
+height = 0.003
+sides = 6
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGCylinder3D" parent="Sixth symbol/CSGBox3D3"]
+transform = Transform3D(0.999997, 0, 0.00254814, 0, 1, 0, -0.00254814, 0, 0.999997, 8.34465e-07, 0, -0.000355169)
+operation = 2
+radius = 0.0107422
+height = 0.003
+sides = 6
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Sixth symbol/CSGBox3D3"]
+transform = Transform3D(1.5479, 0, 1.86265e-09, 0, 1.07184, 0, 2.56114e-09, 0, 1.07186, 9.05097e-05, 0, 0.0100706)
+operation = 2
+size = Vector3(0.00561816, 0.005, 0.003)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(1.5479, 0, 0, 0, 1.07184, 0, 0, 0, 1.07186, 0.00396687, 0, 0.014097)
+size = Vector3(0.0018009, 0.005, 0.00589453)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(1.5479, 0, 0, 0, 1.07184, 0, 0, 0, 1.07186, -0.00393552, 0, 0.0141858)
+size = Vector3(0.0018009, 0.005, 0.00589453)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(-6.76607e-08, 0, 1.07186, 0, 1.07184, 0, -1.5479, 0, -4.68523e-08, -0.00692153, 0, 0.016564)
+size = Vector3(0.00102252, 0.005, 0.00831836)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(-6.76607e-08, 0, 1.07186, 0, 1.07184, 0, -1.5479, 0, -4.68523e-08, 0.00701863, 0, 0.016564)
+size = Vector3(0.00102252, 0.005, 0.00831836)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(-1.09392, 0, 0.758339, 0, 1.07184, 0, -1.09514, 0, -0.757493, 0.0126711, 0, 0.0146279)
+size = Vector3(0.00102252, 0.005, 0.00555859)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(-1.09453, 0, -0.757916, 0, 1.07184, 0, 1.09453, 0, -0.757916, -0.0127231, 0, 0.0146279)
+size = Vector3(0.00102252, 0.005, 0.00555859)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(1.54789, 0, 0.00252547, 0, 1.07184, 0, -0.00364711, 0, 1.07185, -2.84016e-05, 0, -0.00237133)
+size = Vector3(0.0018009, 0.005, 0.0109951)
+material = SubResource("StandardMaterial3D_vwujw")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Sixth symbol"]
+transform = Transform3D(1.5479, 0, 0, 0, 1.07184, 0, 0, 0, 1.07186, 0.000106394, 0, -0.000241056)
+size = Vector3(0.00470258, 0.005, 0.00175531)
+material = SubResource("StandardMaterial3D_vwujw")

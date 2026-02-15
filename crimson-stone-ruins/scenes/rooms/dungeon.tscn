@@ -1,0 +1,71 @@
+[gd_scene load_steps=20 format=3 uid="uid://bok07scwuknfe"]
+
+[ext_resource type="PackedScene" uid="uid://c1y47m1cvchyr" path="res://scenes/manager/dungeon_manager.tscn" id="1_1qag5"]
+[ext_resource type="Script" uid="uid://ds7be6fcgkiat" path="res://scripts/debug_camera.gd" id="1_6rb7p"]
+[ext_resource type="Script" uid="uid://cv387u34dynq6" path="res://scripts/dungeon/dungeon.gd" id="1_d64og"]
+[ext_resource type="PackedScene" uid="uid://dkc5xi2t02532" path="res://scenes/enemies/enemy.tscn" id="2_d64og"]
+[ext_resource type="PackedScene" uid="uid://b65bqkxuurdn5" path="res://scenes/enemies/enemy_drop.tscn" id="3_8opm2"]
+[ext_resource type="PackedScene" uid="uid://c3fwbc6sehk3m" path="res://scenes/level/chest.tscn" id="4_1qag5"]
+[ext_resource type="PackedScene" uid="uid://bh12oj1yyteeh" path="res://scenes/enemies/enemy_ghost.tscn" id="4_ypmp6"]
+[ext_resource type="PackedScene" uid="uid://bn8rle2sdu0ct" path="res://scenes/enemies/enemy_grandpa.tscn" id="5_eguku"]
+[ext_resource type="PackedScene" uid="uid://c5m3umjy2p010" path="res://scenes/enemies/enemy_mouth.tscn" id="6_qtdjd"]
+[ext_resource type="PackedScene" uid="uid://rd1qk7wqy7gq" path="res://scenes/enemies/enemy_robot.tscn" id="7_2cqc7"]
+[ext_resource type="PackedScene" uid="uid://cpsll74hyyywn" path="res://scenes/ui/equip_accessory.tscn" id="7_7w0u4"]
+[ext_resource type="PackedScene" uid="uid://fsmu38bidl8t" path="res://scenes/enemies/enemy_skull.tscn" id="8_hbtb1"]
+[ext_resource type="PackedScene" uid="uid://hmi5nkik3md2" path="res://scenes/ui/game_menu.tscn" id="9_1qag5"]
+[ext_resource type="Script" uid="uid://v53sgfpmgy4y" path="res://scripts/accessories/dungeon_accessory.gd" id="9_d64og"]
+[ext_resource type="PackedScene" uid="uid://bgau1w5gqtpc1" path="res://scenes/ui/options_menu.tscn" id="9_g0x3l"]
+[ext_resource type="PackedScene" uid="uid://25y6cexpf7un" path="res://scenes/enemies/enemy_boss.tscn" id="10_ypmp6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lfqav"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_8opm2"]
+sky_material = SubResource("ProceduralSkyMaterial_lfqav")
+
+[sub_resource type="Environment" id="Environment_ypmp6"]
+background_mode = 2
+sky = SubResource("Sky_8opm2")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Dungeon" type="Node3D"]
+script = ExtResource("1_d64og")
+
+[node name="DungeonManager" parent="." instance=ExtResource("1_1qag5")]
+num_enemies = 6
+enemies_list = Dictionary[int, PackedScene]({
+100: ExtResource("3_8opm2"),
+200: ExtResource("4_ypmp6"),
+300: ExtResource("5_eguku"),
+400: ExtResource("6_qtdjd"),
+500: ExtResource("7_2cqc7"),
+600: ExtResource("8_hbtb1"),
+700: ExtResource("2_d64og")
+})
+boss = ExtResource("10_ypmp6")
+chest_scene = ExtResource("4_1qag5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ypmp6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5, 0)
+shadow_enabled = true
+
+[node name="DebugCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 12, 26)
+current = true
+script = ExtResource("1_6rb7p")
+
+[node name="Accessory" type="Sprite2D" parent="."]
+position = Vector2(64, 584)
+scale = Vector2(4, 4)
+script = ExtResource("9_d64og")
+
+[node name="GameMenu" parent="." instance=ExtResource("9_1qag5")]
+
+[node name="OptionsMenu" parent="." instance=ExtResource("9_g0x3l")]
+
+[node name="EquipAccessory" parent="." instance=ExtResource("7_7w0u4")]

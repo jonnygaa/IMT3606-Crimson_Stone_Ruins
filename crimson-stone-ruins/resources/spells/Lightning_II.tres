@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://db7fj3ix46t0t"]
+
+[ext_resource type="Script" uid="uid://efx280ta2ieo" path="res://scripts/spells/basic_spell.gd" id="1_korr5"]
+[ext_resource type="PackedScene" uid="uid://cdyoqdwk85jfa" path="res://scenes/spell_animations/lightning_animation.tscn" id="2_vpgyu"]
+
+[resource]
+script = ExtResource("1_korr5")
+spell_name = "Lightning II"
+element_order = Array[int]([1, 1])
+sprite_animation = ExtResource("2_vpgyu")
+damage = 5
+effects_list = Array[PackedScene]([])
+buff_against_effect = 0
+metadata/_custom_type_script = "uid://efx280ta2ieo"

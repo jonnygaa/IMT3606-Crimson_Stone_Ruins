@@ -1,0 +1,167 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbrnlf8oaxlkf"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_cub27"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_5eheg"]
+[ext_resource type="Script" uid="uid://drvs3e40xqobl" path="res://scripts/enemies/ennemy_area.gd" id="4_7oxfe"]
+[ext_resource type="PackedScene" uid="uid://dng55cpcgee78" path="res://scenes/rooms/enemy_spawn_point.tscn" id="5_5dguk"]
+[ext_resource type="PackedScene" uid="uid://bsc0r0wvkkq6n" path="res://scenes/rooms/chest_spawn_point.tscn" id="5_7oxfe"]
+[ext_resource type="Texture2D" uid="uid://bupcerp077soi" path="res://assets/art/environments/WallTextureBlue.png" id="6_ssf53"]
+[ext_resource type="Texture2D" uid="uid://bwvjaxvt55sk1" path="res://assets/art/environments/FloorTextureBlue.png" id="7_5urtq"]
+[ext_resource type="Texture2D" uid="uid://djw50vbv2lohi" path="res://assets/art/environments/FloorBlue.png" id="7_ssf53"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6amfa"]
+size = Vector3(2.9, 1.99707, 2.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppd5e"]
+albedo_texture = ExtResource("6_ssf53")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdeeh"]
+albedo_texture = ExtResource("7_5urtq")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_440xp"]
+albedo_texture = ExtResource("7_ssf53")
+texture_filter = 0
+
+[node name="Room4" type="Node3D" groups=["persist"]]
+script = ExtResource("1_cub27")
+size_in_voxels = Vector3i(2, 1, 2)
+voxel_scale = Vector3(3, 2, 3)
+min_count = 1
+max_count = 1
+
+[node name="RemoveUnusedDoor" parent="." instance=ExtResource("2_5eheg")]
+
+[node name="EnnemyArea" type="Area3D" parent="." groups=["enemy_area"]]
+script = ExtResource("4_7oxfe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnnemyArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+shape = SubResource("BoxShape3D_6amfa")
+
+[node name="EnnemyArea2" type="Area3D" parent="." groups=["enemy_area"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("4_7oxfe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnnemyArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+shape = SubResource("BoxShape3D_6amfa")
+
+[node name="EnemySpawnPoint" parent="." instance=ExtResource("5_5dguk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34478, -0.881636, -1.51661)
+
+[node name="EnemySpawnPoint2" parent="." instance=ExtResource("5_5dguk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45522, -0.881636, 1.38339)
+
+[node name="ChestSpawnPoint" parent="." instance=ExtResource("5_7oxfe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.24849, -0.95, -2.23761)
+
+[node name="RoomCell1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
+
+[node name="TextureWall1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TextureWall2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TextureWall4" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="DOOR?4" type="CSGBox3D" parent="RoomCell1/TextureWall4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00505745, 0, -0.0370575)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_sdeeh")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_440xp")
+
+[node name="RoomCell2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+
+[node name="TextureWall1" type="CSGBox3D" parent="RoomCell2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TextureWall3" type="CSGBox3D" parent="RoomCell2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_sdeeh")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_440xp")
+
+[node name="RoomCell3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+
+[node name="TextureWall2" type="CSGBox3D" parent="RoomCell3"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="DOOR?2" type="CSGBox3D" parent="RoomCell3/TextureWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, -0.0649126)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall3" type="CSGBox3D" parent="RoomCell3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TextureWall4" type="CSGBox3D" parent="RoomCell3"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_ppd5e")
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_sdeeh")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_440xp")
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoor" method="_on_dungeon_done_generating"]
+[connection signal="body_entered" from="EnnemyArea" to="EnemySpawnPoint" method="_on_ennemy_area_body_entered"]
+[connection signal="body_exited" from="EnnemyArea" to="EnemySpawnPoint" method="_on_ennemy_area_body_exited"]
+[connection signal="body_entered" from="EnnemyArea2" to="EnemySpawnPoint2" method="_on_ennemy_area_2_body_entered"]
+[connection signal="body_exited" from="EnnemyArea2" to="EnemySpawnPoint2" method="_on_ennemy_area_2_body_exited"]

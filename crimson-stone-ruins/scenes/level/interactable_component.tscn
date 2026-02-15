@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp1dk0ko38pmf"]
+
+[ext_resource type="Script" uid="uid://cw777eh1ivm41" path="res://scripts/level/interactable_component.gd" id="1_woyqo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hi7at"]
+
+[node name="InteractableComponent" type="Node3D"]
+script = ExtResource("1_woyqo")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_hi7at")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

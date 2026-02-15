@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4n2wrjwpmk7l"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_p7tdo"]
+[ext_resource type="Texture2D" uid="uid://bayj3t1ua0p8" path="res://assets/art/elements-spells-magics/WaterAnimation.png" id="2_p7tdo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyntg"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pnwn"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8jqj"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_linp4"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axcs3"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mnxg"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p5ul"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0kfx"]
+atlas = ExtResource("2_p7tdo")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyntg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pnwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8jqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_linp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axcs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mnxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p5ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0kfx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="WaterAnimation" type="Node3D"]
+script = ExtResource("1_p7tdo")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

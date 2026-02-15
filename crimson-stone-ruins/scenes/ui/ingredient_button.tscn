@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://phblpv1b57a8"]
+
+[ext_resource type="Script" uid="uid://cjri7t6jpel0n" path="res://scripts/ui/ingredient_button.gd" id="1_ma0rk"]
+
+[node name="IngredientButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_vertical = 4
+text = "ingredientName"
+script = ExtResource("1_ma0rk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

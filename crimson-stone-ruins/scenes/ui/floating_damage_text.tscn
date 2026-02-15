@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://o4tmjll3lcuj"]
+
+[ext_resource type="Script" uid="uid://cw4nxq3a484w" path="res://scenes/ui/floating_damage_text.gd" id="1_62f00"]
+
+[node name="FloatingDamageText" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_62f00")
+
+[node name="Label3D" type="Label3D" parent="."]

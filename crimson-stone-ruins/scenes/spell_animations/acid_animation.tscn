@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2uv2v2nqvw6f"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_44lkr"]
+[ext_resource type="Texture2D" uid="uid://b4y0aptq1nhtk" path="res://assets/art/elements-spells-magics/AcidAnimation.png" id="2_44lkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg34j"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cr1e"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh1n6"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cgh7"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynh3d"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4vvx"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf5xa"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32e73"]
+atlas = ExtResource("2_44lkr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg34j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cr1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cgh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynh3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4vvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf5xa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32e73")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="AcidAnimation" type="Node3D"]
+script = ExtResource("1_44lkr")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7xuiqcip3beo"]
+
+[ext_resource type="Texture2D" uid="uid://cri3l06rfx0fb" path="res://assets/ui/4. Arrow Down.png" id="1_3xg7b"]
+
+[node name="TargetIndicator3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_3xg7b")

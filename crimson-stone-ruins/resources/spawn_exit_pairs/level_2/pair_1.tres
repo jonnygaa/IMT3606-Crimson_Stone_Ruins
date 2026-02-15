@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpawnExitPair" load_steps=2 format=3 uid="uid://bd8q2jubkkoe"]
+
+[ext_resource type="Script" uid="uid://b2q85m2g54imd" path="res://scripts/dungeon/spawn_exit_pair.gd" id="1_5c5lv"]
+
+[resource]
+script = ExtResource("1_5c5lv")
+spawn_pos = Vector3(9, 0, -1.5)
+spawn_y_rot = 90
+exit_pos = Vector3(-9, 0, 4.5)
+exit_y_rot = -90
+default_seed = 2390419532
+metadata/_custom_type_script = "uid://b2q85m2g54imd"

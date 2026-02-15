@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdyoqdwk85jfa"]
+
+[ext_resource type="Script" uid="uid://samhv7lnkcy0" path="res://scripts/spells/spell_animation.gd" id="1_np40s"]
+[ext_resource type="Texture2D" uid="uid://rbt48x3won1l" path="res://assets/art/elements-spells-magics/LightningAnimation.png" id="2_np40s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k187j"]
+atlas = ExtResource("2_np40s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua5yf"]
+atlas = ExtResource("2_np40s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy11b"]
+atlas = ExtResource("2_np40s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8a3k"]
+atlas = ExtResource("2_np40s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a58c"]
+atlas = ExtResource("2_np40s")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1oee"]
+atlas = ExtResource("2_np40s")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rctff"]
+atlas = ExtResource("2_np40s")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kv550"]
+atlas = ExtResource("2_np40s")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlq4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k187j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua5yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy11b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8a3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a58c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1oee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rctff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kv550")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="LightningAnimation" type="Node3D"]
+script = ExtResource("1_np40s")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165624, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_rlq4f")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

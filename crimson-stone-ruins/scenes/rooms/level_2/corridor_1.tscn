@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://51rsk0qoc7ls"]
+
+[ext_resource type="Script" uid="uid://h842d71ewtrq" path="res://addons/SimpleDungeons/DungeonRoom3D.gd" id="1_e2wvw"]
+[ext_resource type="PackedScene" uid="uid://c5gfedhc4vimw" path="res://scenes/rooms/remove_unused_doors.tscn" id="2_fqpov"]
+[ext_resource type="Texture2D" uid="uid://b03k1b80nx68a" path="res://assets/art/environments/WallTextureRed.png" id="3_8ahdq"]
+[ext_resource type="Texture2D" uid="uid://dqsp0yg8yi2m0" path="res://assets/art/environments/FloorTextureRed.png" id="4_kblon"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wjim"]
+albedo_texture = ExtResource("3_8ahdq")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4kbey"]
+albedo_texture = ExtResource("4_kblon")
+texture_filter = 0
+
+[node name="Corridor1" type="Node3D" groups=["persist"]]
+script = ExtResource("1_e2wvw")
+voxel_scale = Vector3(3, 2, 3)
+max_count = 2
+
+[node name="RemoveUnusedDoors" parent="." instance=ExtResource("2_fqpov")]
+
+[node name="RoomCell1" type="Node3D" parent="."]
+
+[node name="TextureWall1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?1" type="CSGBox3D" parent="RoomCell1/TextureWall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, 0.0406978)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 1.495)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?2" type="CSGBox3D" parent="RoomCell1/TextureWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000350773, 0, -0.0649126)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall3" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?3" type="CSGBox3D" parent="RoomCell1/TextureWall3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00505746, 0, 0.0279114)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TextureWall4" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -1.495, 0, 0)
+use_collision = true
+size = Vector3(3, 2, 0.008)
+material = SubResource("StandardMaterial3D_6wjim")
+
+[node name="DOOR?4" type="CSGBox3D" parent="RoomCell1/TextureWall4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00505745, 0, -0.0370575)
+operation = 2
+size = Vector3(1, 1.9, 0.145508)
+
+[node name="TexturePlane1" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.954767, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_4kbey")
+
+[node name="TexturePlane2" type="CSGBox3D" parent="RoomCell1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.955, 0)
+use_collision = true
+size = Vector3(3, 0.008, 3)
+material = SubResource("StandardMaterial3D_4kbey")
+
+[connection signal="dungeon_done_generating" from="." to="RemoveUnusedDoors" method="_on_dungeon_done_generating"]
